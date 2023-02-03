@@ -1,0 +1,35 @@
+.el-input .el-input__wrapper {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.el-input .el-input__wrapper:hover {
+  box-shadow: none;
+}
+
+.el-input .el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--primary-color) inset;
+}
+
+.el-input .el-input__wrapper input {
+  height: auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.el-input .el-input-group__append {
+  padding: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}

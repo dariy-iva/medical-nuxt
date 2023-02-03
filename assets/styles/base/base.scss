@@ -1,0 +1,54 @@
+body {
+  font-family: 'Lato', Arial, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+
+  //now theme select is disabled
+  // typography
+  --text-color: #353535;
+  --text-color-light: #8C8C8C;
+  --text-color-extralight: #D2D2D2;
+  --text-color-inverse: #F5F5F5;
+
+  // base colors
+  --primary-color: #00ACC2;
+  --primary-light-color: #00C2DB;
+  --secondary-color: #F2F8F9;
+}
+
+a {
+  cursor: pointer;
+  transition: all .3s;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-light-color);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}

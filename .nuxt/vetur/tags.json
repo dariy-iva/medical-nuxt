@@ -1,0 +1,14 @@
+{
+  "DrawerMenu": {
+    "description": "Auto imported from components/DrawerMenu.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "FormsInputsSearchInput": {
+    "description": "Auto imported from components/forms/inputs/SearchInput.vue"
+  }
+}

@@ -1,0 +1,14 @@
+.tab {
+  padding-bottom: 4px;
+  color: var(--text-color-light);
+  transition: all .3s;
+
+  &:hover {
+    color: var(--text-color);
+  }
+
+  &_active {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+  }
+}
