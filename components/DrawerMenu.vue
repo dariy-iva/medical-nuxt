@@ -1,6 +1,6 @@
 <template>
   <el-drawer
-    v-model="drawerModel"
+    :visible.sync="drawerModel"
     :destroy-on-close="true"
     size="auto"
     :append-to-body="true"
@@ -11,10 +11,14 @@
       class="drawer-menu__menu"
     >
       <template v-for="link in navigationLinks">
-        <el-sub-menu v-if="link.children" :index="link.link.replace('/', '')">
+        <el-submenu
+          v-if="link.children"
+          :index="link.link.replace('/', '')"
+        >
           <template #title>
-             <span>{{ link.name }}</span>
+            <span>{{ link.name }}</span>
           </template>
+
           <el-menu-item
             v-for="subLink in link.children"
             :key="`subLink-${subLink.name}`"
@@ -27,7 +31,7 @@
               {{ subLink.name }}
             </NuxtLink>
           </el-menu-item>
-        </el-sub-menu>
+        </el-submenu>
 
         <el-menu-item
           v-else
@@ -159,29 +163,35 @@ export default {
     gap: 24px;
     border: none;
 
-    & .el-menu-item, & a{
+    & .el-menu-item, & a {
       color: var(--text-color);
     }
 
-    & .el-menu-item:hover, & a:hover, & .el-sub-menu__title:hover {
+    & .el-menu-item:hover, & a:hover, & .el-submenu__title:hover {
       color: var(--primary-color);
     }
 
-    & .el-sub-menu__title, & .drawer-menu__first-level-link {
+    & .el-submenu__title {
+      display: flex;
+      align-items: center;
+    }
+
+    & .el-submenu__title, & .drawer-menu__first-level-link {
       height: auto;
-      padding: 0!important;
+      padding: 0 !important;
       font-weight: 700;
       font-size: 16px;
       line-height: 1.5;
     }
 
-    & .el-menu-item:hover, & .el-sub-menu__title:hover {
+    & .el-menu-item:hover, & .el-submenu__title:hover {
       background: none;
     }
 
-    & .el-sub-menu__title::after {
+    & .el-submenu__title::after {
       margin-left: auto;
       content: '';
+      display: inline-block;
       width: 21px;
       height: 10px;
       background: url("~/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
@@ -189,11 +199,11 @@ export default {
       transition: rotate .4s;
     }
 
-    & .el-sub-menu.is-opened .el-sub-menu__title::after {
+    & .el-submenu.is-opened .el-submenu__title::after {
       rotate: 0deg;
     }
 
-    & .el-sub-menu__icon-arrow {
+    & .el-submenu__icon-arrow {
       display: none;
     }
 
@@ -205,7 +215,7 @@ export default {
     }
 
     & .drawer-menu__second-level-link {
-      padding: 0!important;
+      padding: 0 !important;
       height: auto;
       font-weight: 400;
       font-size: 14px;
@@ -213,7 +223,7 @@ export default {
     }
 
     & .drawer-menu__second-level-link:first-child {
-      padding-top: 12px!important;
+      padding-top: 12px !important;
     }
   }
 }

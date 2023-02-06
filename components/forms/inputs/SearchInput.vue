@@ -37,7 +37,7 @@ export default {
 .search-form {
   &__submit {
     min-width: 80px;
-    min-height: 100%;
+    min-height: 44px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-image: url("~/assets/images/icons/search_icon.svg");

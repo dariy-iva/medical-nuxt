@@ -177,6 +177,7 @@ export default {
       z-index: 10000;
       padding: 9px 18px;
       display: flex;
+      background-color: var(--general-background-color);
     }
 
     &__menu-list {
@@ -194,7 +195,7 @@ export default {
       font-weight: 400;
       font-size: 11px;
       line-height: 1.82;
-      color: var(--secondary-color);
+      color: var(--text-color-light);
 
       &:hover, &_active {
         color: var(--primary-color);
@@ -208,7 +209,7 @@ export default {
       -webkit-mask-position: center;
       -webkit-mask-size: cover;
       -webkit-mask-repeat: no-repeat;
-      background-color: var(--secondary-color);
+      background-color: var(--text-color-light);
       transition: background-color .3s;
 
       &_content_home {

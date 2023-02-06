@@ -79,6 +79,7 @@ export default {
   methods: {
     toggleDrawerMenuStatus() {
       this.drawerMenuIsOpen = !this.drawerMenuIsOpen;
+      console.log(this.drawerMenuIsOpen)
     }
   }
 }
