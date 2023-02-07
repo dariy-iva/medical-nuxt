@@ -1,6 +1,9 @@
 <template>
-  <el-form name="searchForm" :class="`search-form ${formClass || ''}`">
-    <el-input
+  <ElForm
+    name="searchForm"
+    :class="`search-form ${formClass || ''}`"
+  >
+    <ElInput
       v-model="search"
       type="search"
       required
@@ -13,24 +16,24 @@
           aria-label="поиск"
         />
       </template>
-    </el-input>
-  </el-form>
+    </ElInput>
+  </ElForm>
 </template>
 
 <script>
 export default {
-  name: "SearchInput",
+  name: 'SearchInput',
 
   props: {
-    formClass: String
+    formClass: String,
   },
 
   data() {
     return {
-      search: ''
-    }
-  }
-}
+      search: '',
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -50,7 +53,6 @@ export default {
 @media (max-width: 767px) {
   .search-form {
     &__submit {
-
     }
   }
 }

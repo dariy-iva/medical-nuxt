@@ -6,22 +6,17 @@ export default {
       lang: 'ru',
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Medical site' },
-      { name: 'format-detection', content: 'telephone=no' },
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: 'Medical site'},
+      {name: 'format-detection', content: 'telephone=no'},
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    noscript: [
-      { children: 'JavaScript is required' }
-    ],
+    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
+    noscript: [{children: 'JavaScript is required'}],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    'element-ui/lib/theme-chalk/index.css',
-    '@/assets/styles/main.scss',
-  ],
+  css: ['element-ui/lib/theme-chalk/index.css', '@/assets/styles/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/element-ui'],
@@ -51,4 +46,4 @@ export default {
   build: {
     transpile: [/^element-ui/],
   },
-}
+};

@@ -1,7 +1,7 @@
 export const navigationLinks = {
-  scientific_base: {
+  scientificBase: {
     name: 'Научная база',
-    link: '/scientific-base'
+    link: '/scientific-base',
   },
   products: {
     name: 'Продукты',
@@ -9,27 +9,27 @@ export const navigationLinks = {
     children: {
       reviews: {
         name: 'Отзывы о продуктах',
-        link: '/products/experience-exchange'
+        link: '/products/experience-exchange',
       },
       quiz: {
         name: 'Опросы',
-        link: '/products/quiz'
+        link: '/products/quiz',
       },
-    }
+    },
   },
   events: {
     name: 'Мероприятия',
     link: '/events',
     children: {
-      events_archive: {
+      eventsArchive: {
         name: 'Прошедшие мероприятия',
-        link: '/events/arkhive'
+        link: '/events/arkhive',
       },
       webinars: {
         name: 'Прямой эфир',
-        link: '/events/webinar'
+        link: '/events/webinar',
       },
-    }
+    },
   },
   cabinet: {
     name: 'Личный кабинет',
@@ -37,36 +37,36 @@ export const navigationLinks = {
     children: {
       observation: {
         name: 'Обсервационные исследования',
-        link: '/cabinet/observation'
+        link: '/cabinet/observation',
       },
       patients: {
         name: 'Материалы для пациентов',
-        link: '/cabinet/for-patients'
+        link: '/cabinet/for-patients',
       },
-      practitioner_skills: {
+      practitionerSkills: {
         name: 'В помощь практикующему врачу',
-        link: '/cabinet/practitioner-skills'
+        link: '/cabinet/practitioner-skills',
       },
-    }
+    },
   },
-  clinical_cases: {
+  clinicalCases: {
     name: 'Банк клинических случаев',
-    link: '/clinical-cases'
+    link: '/clinical-cases',
   },
-  gifts_pro: {
+  giftsPro: {
     name: 'ГифтсПро',
-    link: '/gifts-pro'
+    link: '/gifts-pro',
   },
   telemedicine: {
     name: 'Телемедицина',
-    link: '/telemedicine'
+    link: '/telemedicine',
   },
   feedback: {
     name: 'Связаться с ACD',
-    link: '/zayavka'
+    link: '/zayavka',
   },
   calendar: {
     name: 'Научный календарь',
-    link: '/calendar'
+    link: '/calendar',
   },
-}
+};

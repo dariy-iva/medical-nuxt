@@ -2,9 +2,13 @@
   <footer class="footer">
     <div class="footer__level footer__level_up">
       <div class="footer__contacts wrapper">
-        <h3 class="footer__title">Свяжитесь с нами, если возникнут вопросы</h3>
+        <h3 class="footer__title">
+          Свяжитесь с нами, если возникнут вопросы
+        </h3>
 
-        <p class="footer__work-time">По будням с 8:00 до 19:00 по московскому времени</p>
+        <p class="footer__work-time">
+          По будням с 8:00 до 19:00 по московскому времени
+        </p>
 
         <a
           href="tel:88005114387"
@@ -21,13 +25,23 @@
 
     <div class="footer__level">
       <div class="footer__rights-info wrapper">
-        <p class="footer__copy">&copy;&nbsp;2022, Loreal Dermatological Beauty</p>
+        <p class="footer__copy">
+          &copy;&nbsp;2022, Loreal Dermatological Beauty
+        </p>
 
-        <p class="footer__notification">Информация предназначена только для&nbsp;специалистов здравоохранения</p>
+        <p class="footer__notification">
+          Информация предназначена только для&nbsp;специалистов здравоохранения
+        </p>
 
         <p class="footer__policy">
-          <a href="#" target="_blank">Политика конфиденциальности</a>
-          <a href="#" target="_blank">Правила пользования сайтом</a>
+          <a
+            href="#"
+            target="_blank"
+          >Политика конфиденциальности</a>
+          <a
+            href="#"
+            target="_blank"
+          >Правила пользования сайтом</a>
         </p>
       </div>
     </div>
@@ -35,15 +49,18 @@
     <div class="footer__menu container-shadow">
       <ul class="footer__menu-list">
         <li
-        v-for="(link, key) in navigationLinks"
-        :key="`footer-link-${key}`">
+          v-for="(link, key) in navigationLinks"
+          :key="`footer-link-${key}`"
+        >
           <NuxtLink
             :to="link.link"
             :class="`footer__menu-link`"
             active-class="footer__menu-link_active"
           >
-            <span :class="`footer__menu-icon footer__menu-icon_content_${key}`"/>
-            {{link.name}}
+            <span
+              :class="`footer__menu-icon footer__menu-icon_content_${key}`"
+            />
+            {{ link.name }}
           </NuxtLink>
         </li>
       </ul>
@@ -52,31 +69,31 @@
 </template>
 
 <script>
-import {navigationLinks} from "~/utils/constants/navigationLinks";
+import {navigationLinks} from '~/utils/constants/navigationLinks';
 
 export default {
-  name: "Footer",
+  name: 'TheFooter',
 
   computed: {
     navigationLinks() {
-      const {scientific_base, products, events, cabinet} = navigationLinks;
+      const {scientificBase, products, events, cabinet} = navigationLinks;
 
       return {
         home: {
           name: 'Главная',
           link: '/',
         },
-        scientific_base,
+        scientificBase,
         products,
         events,
         account: {
           name: 'Аккаунт',
           link: cabinet.link,
-        }
-      }
-    }
-  }
-}
+        },
+      };
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -86,7 +103,7 @@ export default {
     padding-bottom: 64px;
 
     &_up {
-      border: 1px solid #EFEFEF;
+      border: 1px solid #efefef;
     }
 
     &:not(&_up) {
@@ -164,7 +181,6 @@ export default {
 
 @media (max-width: 767px) {
   .footer {
-
     &__level {
       display: none;
     }
@@ -197,7 +213,8 @@ export default {
       line-height: 1.82;
       color: var(--text-color-light);
 
-      &:hover, &_active {
+      &:hover,
+      &_active {
         color: var(--primary-color);
       }
     }
@@ -210,7 +227,7 @@ export default {
       -webkit-mask-size: cover;
       -webkit-mask-repeat: no-repeat;
       background-color: var(--text-color-light);
-      transition: background-color .3s;
+      transition: background-color 0.3s;
 
       &_content_home {
         width: 23px;
@@ -248,7 +265,8 @@ export default {
       }
     }
 
-    &__menu-link:hover &__menu-icon, &__menu-link_active &__menu-icon {
+    &__menu-link:hover &__menu-icon,
+    &__menu-link_active &__menu-icon {
       background-color: var(--primary-color);
     }
   }

@@ -2,21 +2,24 @@
   <header class="header container-shadow">
     <div class="wrapper header__wrapper">
       <div class="header__row">
-        <NuxtLink to="/" class="header__logo"/>
+        <NuxtLink
+          to="/"
+          class="header__logo"
+        />
 
-        <SearchInput formClass="header__search"/>
+        <SearchInput form-class="header__search" />
       </div>
 
       <div class="header__row">
         <nav class="header__nav">
           <NuxtLink
-            :to="navigationLinks.scientific_base.link"
+            :to="navigationLinks.scientificBase.link"
             class="header__nav-link tab"
             active-class="tab_active"
           >
-            <span class="header__link-icon"/>
+            <span class="header__link-icon" />
 
-            {{ navigationLinks.scientific_base.name }}
+            {{ navigationLinks.scientificBase.name }}
           </NuxtLink>
 
           <NuxtLink
@@ -38,51 +41,53 @@
 
         <button
           type="button"
-          @click="toggleDrawerMenuStatus"
           class="header__menu-button"
           aria-label="открыть меню"
+          @click="toggleDrawerMenuStatus"
         >
-          <span/>
+          <span />
         </button>
       </div>
     </div>
 
-    <DrawerMenu :isOpen="drawerMenuIsOpen" :onClose="toggleDrawerMenuStatus"/>
+    <TheSidebar
+      :is-open="drawerMenuIsOpen"
+      :on-close="toggleDrawerMenuStatus"
+    />
   </header>
 </template>
 
 <script>
-import {navigationLinks} from "~/utils/constants/navigationLinks";
-import SearchInput from "~/components/forms/inputs/SearchInput.vue";
-import DrawerMenu from "~/components/DrawerMenu.vue";
+import {navigationLinks} from '~/utils/constants/navigationLinks';
+import SearchInput from '~/components/forms/inputs/SearchInput.vue';
+import TheSidebar from '~/components/TheSidebar.vue';
 
 export default {
-  name: "Header",
+  name: 'TheHeader',
 
   components: {
     SearchInput,
-    DrawerMenu
+    TheSidebar,
   },
 
   data() {
     return {
-      drawerMenuIsOpen: false
-    }
+      drawerMenuIsOpen: false,
+    };
   },
 
   computed: {
     navigationLinks() {
       return navigationLinks;
-    }
+    },
   },
 
   methods: {
     toggleDrawerMenuStatus() {
       this.drawerMenuIsOpen = !this.drawerMenuIsOpen;
-      console.log(this.drawerMenuIsOpen)
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -107,7 +112,8 @@ export default {
     width: 199px;
     height: 44px;
     mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
+    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover
+      no-repeat;
     background-color: #000;
   }
 
@@ -133,13 +139,16 @@ export default {
     display: flex;
     width: 16px;
     height: 20px;
-    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover no-repeat;
+    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover
+      no-repeat;
+    -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center /
+      cover no-repeat;
     background-color: var(--text-color-extralight);
-    transition: background-color .3s;
+    transition: background-color 0.3s;
   }
 
-  &__nav-link:hover &__link-icon, &__nav-link.tab_active &__link-icon {
+  &__nav-link:hover &__link-icon,
+  &__nav-link.tab_active &__link-icon {
     background-color: var(--primary-color);
   }
 
@@ -149,9 +158,10 @@ export default {
     border-top: 2px solid #000;
     border-bottom: 2px solid #000;
     box-sizing: border-box;
-    transition: border-color .3s;
+    transition: border-color 0.3s;
 
-    &:hover, &:hover span {
+    &:hover,
+    &:hover span {
       border-color: var(--primary-color);
     }
 
@@ -159,7 +169,7 @@ export default {
       display: block;
       width: 100%;
       border-top: 2px solid #000;
-      transition: border-color .3s;
+      transition: border-color 0.3s;
     }
   }
 }
@@ -167,7 +177,7 @@ export default {
 @media (max-width: 767px) {
   .header {
     padding: 8px 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 
     &__wrapper {
       flex-direction: row;

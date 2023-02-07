@@ -1,101 +1,99 @@
 <template>
-  <el-drawer
+  <ElDrawer
     :visible.sync="drawerModel"
     :destroy-on-close="true"
     size="auto"
     :append-to-body="true"
     class="drawer-menu"
   >
-    <el-menu
+    <ElMenu
       :default-openeds="activeGroups"
       class="drawer-menu__menu"
     >
       <template v-for="link in navigationLinks">
-        <el-submenu
+        <ElSubmenu
           v-if="link.children"
+          :key="link.link"
           :index="link.link.replace('/', '')"
         >
           <template #title>
             <span>{{ link.name }}</span>
           </template>
 
-          <el-menu-item
+          <ElMenuItem
             v-for="subLink in link.children"
             :key="`subLink-${subLink.name}`"
             :index="subLink.link.replace('/', '')"
             class="drawer-menu__second-level-link"
           >
-            <NuxtLink
-              :to="subLink.link"
-            >
+            <NuxtLink :to="subLink.link">
               {{ subLink.name }}
             </NuxtLink>
-          </el-menu-item>
-        </el-submenu>
+          </ElMenuItem>
+        </ElSubmenu>
 
-        <el-menu-item
+        <ElMenuItem
           v-else
+          :key="link.link"
           :index="link.link.replace('/', '')"
           class="drawer-menu__first-level-link"
         >
-          <NuxtLink
-            :to="link.link"
-          >
+          <NuxtLink :to="link.link">
             {{ link.name }}
           </NuxtLink>
-        </el-menu-item>
+        </ElMenuItem>
       </template>
-    </el-menu>
-  </el-drawer>
+    </ElMenu>
+  </ElDrawer>
 </template>
 
 <script>
-import {navigationLinks} from "~/utils/constants/navigationLinks";
+import {navigationLinks} from '~/utils/constants/navigationLinks';
 
 export default {
-  name: "DrawerMenu",
+  name: 'TheSidebar',
 
   props: {
     isOpen: Boolean,
-    onClose: Function
+    onClose: Function,
   },
 
   data() {
     return {
-      activeGroups: ['cabinet']
-    }
+      activeGroups: ['cabinet'],
+    };
   },
 
   computed: {
     drawerModel: {
       get() {
-        return this.isOpen
+        return this.isOpen;
       },
       set() {
         this.onClose();
-      }
+      },
     },
 
     navigationLinks() {
       const {
         cabinet,
-        clinical_cases,
+        clinicalCases,
         products,
-        gifts_pro,
-        scientific_base,
+        giftsPro,
+        scientificBase,
         telemedicine,
         events,
         feedback,
-        calendar
+        calendar,
       } = navigationLinks;
 
       return [
         {
           name: cabinet.name,
           link: cabinet.link,
-          children: Object.values(cabinet.children)
+          children: Object.values(cabinet.children),
         },
-        clinical_cases,
+        clinicalCases,
         {
           name: products.name,
           link: products.link,
@@ -104,11 +102,11 @@ export default {
               name: products.name,
               link: products.link,
             },
-            ...Object.values(products.children)
-          ]
+            ...Object.values(products.children),
+          ],
         },
-        gifts_pro,
-        scientific_base,
+        giftsPro,
+        scientificBase,
         telemedicine,
         {
           name: events.name,
@@ -119,27 +117,26 @@ export default {
               link: events.link,
             },
             {
-              name: events.children.events_archive.name.split(' ')[0],
-              link: events.children.events_archive.link,
+              name: events.children.eventsArchive.name.split(' ')[0],
+              link: events.children.eventsArchive.link,
             },
-            events.children.webinars
-          ]
+            events.children.webinars,
+          ],
         },
         feedback,
         calendar,
-      ]
-    }
-  }
-}
+      ];
+    },
+  },
+};
 </script>
 
 <style lang="scss">
 .drawer-menu {
-
   & .el-drawer__header {
     margin: 0;
     padding: 20px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 
     & .el-drawer__close-btn {
       width: 16px;
@@ -163,11 +160,14 @@ export default {
     gap: 24px;
     border: none;
 
-    & .el-menu-item, & a {
+    & .el-menu-item,
+    & a {
       color: var(--text-color);
     }
 
-    & .el-menu-item:hover, & a:hover, & .el-submenu__title:hover {
+    & .el-menu-item:hover,
+    & a:hover,
+    & .el-submenu__title:hover {
       color: var(--primary-color);
     }
 
@@ -176,7 +176,8 @@ export default {
       align-items: center;
     }
 
-    & .el-submenu__title, & .drawer-menu__first-level-link {
+    & .el-submenu__title,
+    & .drawer-menu__first-level-link {
       height: auto;
       padding: 0 !important;
       font-weight: 700;
@@ -184,19 +185,21 @@ export default {
       line-height: 1.5;
     }
 
-    & .el-menu-item:hover, & .el-submenu__title:hover {
+    & .el-menu-item:hover,
+    & .el-submenu__title:hover {
       background: none;
     }
 
     & .el-submenu__title::after {
       margin-left: auto;
-      content: '';
+      content: "";
       display: inline-block;
       width: 21px;
       height: 10px;
-      background: url("~/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
+      background: url("~/assets/images/icons/arrow_icon.svg") center / cover
+        no-repeat;
       rotate: 180deg;
-      transition: rotate .4s;
+      transition: rotate 0.4s;
     }
 
     & .el-submenu.is-opened .el-submenu__title::after {
@@ -230,7 +233,6 @@ export default {
 
 @media (max-width: 767px) {
   .drawer-menu {
-
     & .el-drawer__body {
       padding: 24px;
       width: 100vw;
