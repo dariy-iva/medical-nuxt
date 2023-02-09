@@ -10,7 +10,7 @@
       :default-openeds="activeGroups"
       class="drawer-menu__menu"
     >
-      <template v-for="link in navigationLinks">
+      <template v-for="link in navLinks">
         <ElSubmenu
           v-if="link.children"
           :key="link.link"
@@ -47,88 +47,81 @@
   </ElDrawer>
 </template>
 
-<script>
+<script setup>
+import {ref, computed} from 'vue';
 import {navigationLinks} from '~/utils/constants/navigationLinks';
 
-export default {
-  name: 'TheSidebar',
-
-  props: {
-    isOpen: Boolean,
-    onClose: Function,
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
   },
-
-  data() {
-    return {
-      activeGroups: ['cabinet'],
-    };
+  onClose: {
+    type: Function,
+    required: true
   },
+});
 
-  computed: {
-    drawerModel: {
-      get() {
-        return this.isOpen;
-      },
-      set() {
-        this.onClose();
-      },
+const activeGroups = ref(['cabinet']);
+
+const drawerModel = computed({
+  get: () => props.isOpen,
+  set: () => props.onClose()
+});
+
+const navLinks = computed(() => {
+  const {
+    cabinet,
+    clinicalCases,
+    products,
+    giftsPro,
+    scientificBase,
+    telemedicine,
+    events,
+    feedback,
+    calendar,
+  } = navigationLinks;
+
+  return [
+    {
+      name: cabinet.name,
+      link: cabinet.link,
+      children: Object.values(cabinet.children),
     },
-
-    navigationLinks() {
-      const {
-        cabinet,
-        clinicalCases,
-        products,
-        giftsPro,
-        scientificBase,
-        telemedicine,
-        events,
-        feedback,
-        calendar,
-      } = navigationLinks;
-
-      return [
-        {
-          name: cabinet.name,
-          link: cabinet.link,
-          children: Object.values(cabinet.children),
-        },
-        clinicalCases,
+    clinicalCases,
+    {
+      name: products.name,
+      link: products.link,
+      children: [
         {
           name: products.name,
           link: products.link,
-          children: [
-            {
-              name: products.name,
-              link: products.link,
-            },
-            ...Object.values(products.children),
-          ],
         },
-        giftsPro,
-        scientificBase,
-        telemedicine,
-        {
-          name: events.name,
-          link: events.link,
-          children: [
-            {
-              name: 'Ближайшие',
-              link: events.link,
-            },
-            {
-              name: events.children.eventsArchive.name.split(' ')[0],
-              link: events.children.eventsArchive.link,
-            },
-            events.children.webinars,
-          ],
-        },
-        feedback,
-        calendar,
-      ];
+        ...Object.values(products.children),
+      ],
     },
-  },
-};
+    giftsPro,
+    scientificBase,
+    telemedicine,
+    {
+      name: events.name,
+      link: events.link,
+      children: [
+        {
+          name: 'Ближайшие',
+          link: events.link,
+        },
+        {
+          name: events.children.eventsArchive.name.split(' ')[0],
+          link: events.children.eventsArchive.link,
+        },
+        events.children.webinars,
+      ],
+    },
+    feedback,
+    calendar,
+  ];
+});
 </script>
 
 <style lang="scss">
@@ -196,8 +189,7 @@ export default {
       display: inline-block;
       width: 21px;
       height: 10px;
-      background: url("~/assets/images/icons/arrow_icon.svg") center / cover
-        no-repeat;
+      background: url("~/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
       rotate: 180deg;
       transition: rotate 0.4s;
     }

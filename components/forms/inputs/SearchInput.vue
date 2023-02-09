@@ -1,7 +1,7 @@
 <template>
   <ElForm
     name="searchForm"
-    :class="`search-form ${formClass || ''}`"
+    :class="`search-form ${formClass}`"
   >
     <ElInput
       v-model="search"
@@ -20,20 +20,18 @@
   </ElForm>
 </template>
 
-<script>
-export default {
-  name: 'SearchInput',
+<script setup>
+import {ref} from 'vue';
 
-  props: {
-    formClass: String,
-  },
+const props = defineProps({
+  formClass: {
+    type: String,
+    required: false,
+    default: ''
+  }
+});
 
-  data() {
-    return {
-      search: '',
-    };
-  },
-};
+const search = ref('');
 </script>
 
 <style lang="scss">

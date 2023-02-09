@@ -49,7 +49,7 @@
     <div class="footer__menu container-shadow">
       <ul class="footer__menu-list">
         <li
-          v-for="(link, key) in navigationLinks"
+          v-for="(link, key) in navLinks"
           :key="`footer-link-${key}`"
         >
           <NuxtLink
@@ -68,32 +68,28 @@
   </footer>
 </template>
 
-<script>
+<script setup>
+import {computed} from 'vue';
 import {navigationLinks} from '~/utils/constants/navigationLinks';
 
-export default {
-  name: 'TheFooter',
 
-  computed: {
-    navigationLinks() {
-      const {scientificBase, products, events, cabinet} = navigationLinks;
+const navLinks = computed(() => {
+  const {scientificBase, products, events, cabinet} = navigationLinks;
 
-      return {
-        home: {
-          name: 'Главная',
-          link: '/',
-        },
-        scientificBase,
-        products,
-        events,
-        account: {
-          name: 'Аккаунт',
-          link: cabinet.link,
-        },
-      };
+  return {
+    home: {
+      name: 'Главная',
+      link: '/',
     },
-  },
-};
+    scientificBase,
+    products,
+    events,
+    account: {
+      name: 'Аккаунт',
+      link: cabinet.link,
+    },
+  };
+});
 </script>
 
 <style lang="scss">

@@ -2,10 +2,6 @@
   <h1>HELLO!</h1>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script>
 
-export default Vue.extend({
-  name: 'IndexPage',
-});
 </script>

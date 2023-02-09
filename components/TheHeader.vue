@@ -7,7 +7,7 @@
           class="header__logo"
         />
 
-        <SearchInput form-class="header__search" />
+        <SearchInput form-class="header__search"/>
       </div>
 
       <div class="header__row">
@@ -17,7 +17,7 @@
             class="header__nav-link tab"
             active-class="tab_active"
           >
-            <span class="header__link-icon" />
+            <span class="header__link-icon"/>
 
             {{ navigationLinks.scientificBase.name }}
           </NuxtLink>
@@ -45,7 +45,7 @@
           aria-label="открыть меню"
           @click="toggleDrawerMenuStatus"
         >
-          <span />
+          <span/>
         </button>
       </div>
     </div>
@@ -57,37 +57,18 @@
   </header>
 </template>
 
-<script>
+<script setup>
+import {ref} from 'vue';
 import {navigationLinks} from '~/utils/constants/navigationLinks';
+
 import SearchInput from '~/components/forms/inputs/SearchInput.vue';
 import TheSidebar from '~/components/TheSidebar.vue';
 
-export default {
-  name: 'TheHeader',
+const drawerMenuIsOpen = ref(false);
 
-  components: {
-    SearchInput,
-    TheSidebar,
-  },
-
-  data() {
-    return {
-      drawerMenuIsOpen: false,
-    };
-  },
-
-  computed: {
-    navigationLinks() {
-      return navigationLinks;
-    },
-  },
-
-  methods: {
-    toggleDrawerMenuStatus() {
-      this.drawerMenuIsOpen = !this.drawerMenuIsOpen;
-    },
-  },
-};
+function toggleDrawerMenuStatus() {
+  drawerMenuIsOpen.value = !drawerMenuIsOpen.value;
+}
 </script>
 
 <style lang="scss">
@@ -112,8 +93,7 @@ export default {
     width: 199px;
     height: 44px;
     mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover
-      no-repeat;
+    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
     background-color: #000;
   }
 
@@ -139,8 +119,7 @@ export default {
     display: flex;
     width: 16px;
     height: 20px;
-    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover
-      no-repeat;
+    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover no-repeat;
     -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center /
       cover no-repeat;
     background-color: var(--text-color-extralight);
