@@ -78,15 +78,15 @@ const navLinks = computed(() => {
   return {
     home: {
       name: 'Главная',
-      link: '/',
+      link: '/'
     },
     scientificBase,
     products,
     events,
     account: {
       name: 'Аккаунт',
-      link: cabinet.link,
-    },
+      link: cabinet.link
+    }
   };
 });
 </script>

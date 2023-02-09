@@ -47,26 +47,22 @@
   </ElDrawer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
 
-const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    required: true,
-  },
-  onClose: {
-    type: Function,
-    required: true,
-  },
-});
+interface Props {
+  isOpen: boolean,
+  onClose: void
+}
+
+const props = defineProps<Props>();
 
 const activeGroups = ref([ 'cabinet' ]);
 
 const drawerModel = computed({
   get: () => props.isOpen,
-  set: () => props.onClose(),
+  set: () => props.onClose()
 });
 
 const navLinks = computed(() => {
@@ -79,14 +75,14 @@ const navLinks = computed(() => {
     telemedicine,
     events,
     feedback,
-    calendar,
+    calendar
   } = navigationLinks;
 
   return [
     {
       name: cabinet.name,
       link: cabinet.link,
-      children: Object.values(cabinet.children),
+      children: Object.values(cabinet.children)
     },
     clinicalCases,
     {
@@ -95,10 +91,10 @@ const navLinks = computed(() => {
       children: [
         {
           name: products.name,
-          link: products.link,
+          link: products.link
         },
-        ...Object.values(products.children),
-      ],
+        ...Object.values(products.children)
+      ]
     },
     giftsPro,
     scientificBase,
@@ -109,17 +105,17 @@ const navLinks = computed(() => {
       children: [
         {
           name: 'Ближайшие',
-          link: events.link,
+          link: events.link
         },
         {
           name: events.children.eventsArchive.name.split(' ')[ 0 ],
-          link: events.children.eventsArchive.link,
+          link: events.children.eventsArchive.link
         },
-        events.children.webinars,
-      ],
+        events.children.webinars
+      ]
     },
     feedback,
-    calendar,
+    calendar
   ];
 });
 </script>

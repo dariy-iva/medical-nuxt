@@ -10,12 +10,13 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
-    serviceworker: true,
+    serviceworker: true
   },
 
   extends: [
     'eslint:recommended',
     'plugin:vue/recommended', // Use this if you are using Vue.js 2.x.
+    '@nuxtjs/eslint-config-typescript'
   ],
 
   globals: {
@@ -23,11 +24,11 @@ module.exports = {
     App: 'writable',
     _: 'readonly',
     axios: 'readonly',
-    enquire: 'readonly',
+    enquire: 'readonly'
   },
 
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 'latest'
   },
 
   rules: {
@@ -57,7 +58,7 @@ module.exports = {
     'max-depth': [ 'error', MAX_DEPTH ],
     'max-lines': [
       'warn',
-      { max: 500, skipBlankLines: true, skipComments: true },
+      { max: 500, skipBlankLines: true, skipComments: true }
     ],
     'max-params': [ 'error', PARAMS_NUMBER ],
     'new-cap': [ 'error', { newIsCap: true } ],
@@ -69,7 +70,7 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-trailing-spaces': [
       'error',
-      { skipBlankLines: true, ignoreComments: true },
+      { skipBlankLines: true, ignoreComments: true }
     ],
     'no-undef-init': 'error',
     'no-undefined': 'error',
@@ -92,7 +93,7 @@ module.exports = {
     'space-before-blocks': 'error',
     'space-before-function-paren': [
       'error',
-      { anonymous: 'never', named: 'never', asyncArrow: 'always' },
+      { anonymous: 'never', named: 'never', asyncArrow: 'always' }
     ],
     'spaced-comment': [ 'error', 'always' ],
     'vue/html-indent': [
@@ -103,20 +104,20 @@ module.exports = {
         baseIndent: 1,
         closeBracket: 0,
         alignAttributesVertically: true,
-        ignores: [],
-      },
+        ignores: []
+      }
     ],
     'vue/multi-word-component-names': 0,
     'vue/max-attributes-per-line': [
       'error',
       {
         singleline: {
-          max: 1,
+          max: 1
         },
         multiline: {
-          max: 1,
-        },
-      },
+          max: 1
+        }
+      }
     ],
     'vue/attributes-order': [
       'error',
@@ -132,9 +133,9 @@ module.exports = {
           'OTHER_DIRECTIVES',
           'OTHER_ATTR',
           'EVENTS',
-          'CONTENT',
-        ],
-      },
-    ],
-  },
+          'CONTENT'
+        ]
+      }
+    ]
+  }
 };

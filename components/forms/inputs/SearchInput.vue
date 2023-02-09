@@ -20,15 +20,15 @@
   </ElForm>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const props = defineProps({
-  formClass: {
-    type: String,
-    required: false,
-    default: '',
-  },
+interface Props {
+  formClass?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  formClass: ''
 });
 
 const search = ref('');
