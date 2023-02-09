@@ -69,12 +69,11 @@
 </template>
 
 <script setup>
-import {computed} from 'vue';
-import {navigationLinks} from '~/utils/constants/navigationLinks';
-
+import { computed } from 'vue';
+import { navigationLinks } from '~/utils/constants/navigationLinks';
 
 const navLinks = computed(() => {
-  const {scientificBase, products, events, cabinet} = navigationLinks;
+  const { scientificBase, products, events, cabinet } = navigationLinks;
 
   return {
     home: {

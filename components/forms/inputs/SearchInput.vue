@@ -21,14 +21,14 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   formClass: {
     type: String,
     required: false,
-    default: ''
-  }
+    default: '',
+  },
 });
 
 const search = ref('');

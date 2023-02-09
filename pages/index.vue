@@ -2,6 +2,4 @@
   <h1>HELLO!</h1>
 </template>
 
-<script>
-
-</script>
+<script></script>

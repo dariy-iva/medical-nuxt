@@ -48,8 +48,8 @@
 </template>
 
 <script setup>
-import {ref, computed} from 'vue';
-import {navigationLinks} from '~/utils/constants/navigationLinks';
+import { ref, computed } from 'vue';
+import { navigationLinks } from '~/utils/constants/navigationLinks';
 
 const props = defineProps({
   isOpen: {
@@ -58,15 +58,15 @@ const props = defineProps({
   },
   onClose: {
     type: Function,
-    required: true
+    required: true,
   },
 });
 
-const activeGroups = ref(['cabinet']);
+const activeGroups = ref([ 'cabinet' ]);
 
 const drawerModel = computed({
   get: () => props.isOpen,
-  set: () => props.onClose()
+  set: () => props.onClose(),
 });
 
 const navLinks = computed(() => {
@@ -112,7 +112,7 @@ const navLinks = computed(() => {
           link: events.link,
         },
         {
-          name: events.children.eventsArchive.name.split(' ')[0],
+          name: events.children.eventsArchive.name.split(' ')[ 0 ],
           link: events.children.eventsArchive.link,
         },
         events.children.webinars,
@@ -189,7 +189,8 @@ const navLinks = computed(() => {
       display: inline-block;
       width: 21px;
       height: 10px;
-      background: url("~/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
+      background: url("~/assets/images/icons/arrow_icon.svg") center / cover
+        no-repeat;
       rotate: 180deg;
       transition: rotate 0.4s;
     }
