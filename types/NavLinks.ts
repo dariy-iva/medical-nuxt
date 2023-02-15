@@ -1,8 +1,8 @@
 interface NavLinks {
-    [index: string] : {
-        name: string,
-        link: string,
-        children?: NavLinks
+    readonly [index: string] : {
+        readonly name: string,
+        readonly link: string,
+        readonly children?: NavLinks
     }
 }
 

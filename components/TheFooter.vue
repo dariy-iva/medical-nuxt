@@ -68,11 +68,12 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
+import NavLinks from '~/types/NavLinks';
 
-const navLinks = computed(() => {
+const navLinks = computed<NavLinks>(() => {
   const { scientificBase, products, events, cabinet } = navigationLinks;
 
   return {
@@ -198,7 +199,7 @@ const navLinks = computed(() => {
     }
 
     &__menu-link {
-      min-height: 41px;
+      min-height: 46px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -231,7 +232,7 @@ const navLinks = computed(() => {
         -webkit-mask-image: url("~/assets/images/icons/home_icon.svg");
       }
 
-      &_content_scientific_base {
+      &_content_scientificBase {
         width: 16px;
         height: 20px;
         mask: url("~/assets/images/icons/scientific_base_icon.svg");

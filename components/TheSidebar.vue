@@ -10,20 +10,20 @@
       :default-openeds="activeGroups"
       class="drawer-menu__menu"
     >
-      <template v-for="link in navLinks">
+      <template v-for="(link, key) in navLinks">
         <ElSubmenu
           v-if="link.children"
-          :key="link.link"
-          :index="link.link.replace('/', '')"
+          :key="`drawer-group-${key}`"
+          :index="key"
         >
           <template #title>
             <span>{{ link.name }}</span>
           </template>
 
           <ElMenuItem
-            v-for="subLink in link.children"
-            :key="`subLink-${subLink.name}`"
-            :index="subLink.link.replace('/', '')"
+            v-for="(subLink, key) in link.children"
+            :key="`subLink-${key}`"
+            :index="key"
             class="drawer-menu__second-level-link"
           >
             <NuxtLink :to="subLink.link">
@@ -34,8 +34,8 @@
 
         <ElMenuItem
           v-else
-          :key="link.link"
-          :index="link.link.replace('/', '')"
+          :key="`drawer-link-${key}`"
+          :index="key"
           class="drawer-menu__first-level-link"
         >
           <NuxtLink :to="link.link">
@@ -50,6 +50,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
+import NavLinks from '~/types/NavLinks';
 
 interface Props {
   isOpen: boolean,
@@ -65,7 +66,7 @@ const drawerModel = computed({
   set: () => props.onClose()
 });
 
-const navLinks = computed(() => {
+const navLinks = computed<NavLinks>(() => {
   const {
     cabinet,
     clinicalCases,
@@ -78,45 +79,50 @@ const navLinks = computed(() => {
     calendar
   } = navigationLinks;
 
-  return [
-    {
+  return {
+    cabinet: {
       name: cabinet.name,
       link: cabinet.link,
-      children: Object.values(cabinet.children)
+      children: {
+        observation: cabinet.children?.observation,
+        patients: cabinet.children?.patients,
+        practitionerSkills: cabinet.children?.practitionerSkills
+      }
     },
     clinicalCases,
-    {
+    products: {
       name: products.name,
       link: products.link,
-      children: [
-        {
+      children: {
+        products: {
           name: products.name,
           link: products.link
         },
-        ...Object.values(products.children)
-      ]
+        reviews: products.children?.reviews,
+        quiz: products.children?.quiz
+      }
     },
     giftsPro,
     scientificBase,
     telemedicine,
-    {
+    events: {
       name: events.name,
       link: events.link,
-      children: [
-        {
+      children: {
+        events: {
           name: 'Ближайшие',
           link: events.link
         },
-        {
-          name: events.children.eventsArchive.name.split(' ')[ 0 ],
-          link: events.children.eventsArchive.link
+        eventsArchive: {
+          name: 'Прошедшие',
+          link: events.children?.eventsArchive.link
         },
-        events.children.webinars
-      ]
+        webinars: events.children?.webinars
+      }
     },
     feedback,
     calendar
-  ];
+  };
 });
 </script>
 
@@ -141,6 +147,10 @@ const navLinks = computed(() => {
     padding: 32px;
     width: 437px;
     box-sizing: border-box;
+  }
+
+  & ul.el-menu::before, & ul.el-menu::after {
+    display: none;
   }
 
   & &__menu {
@@ -223,7 +233,7 @@ const navLinks = computed(() => {
 @media (max-width: 767px) {
   .drawer-menu {
     & .el-drawer__body {
-      padding: 24px;
+      padding: 24px 24px 107px;
       width: 100vw;
     }
   }

@@ -13,29 +13,18 @@
       <div class="header__row">
         <nav class="header__nav">
           <NuxtLink
-            :to="navigationLinks.scientificBase.link"
+            v-for="(link, key) in navLinks"
+            :key="`header-link-${key}`"
+            :to="link.link"
             class="header__nav-link tab"
             active-class="tab_active"
           >
-            <span class="header__link-icon" />
+            <span
+              v-if="key === 'scientificBase'"
+              class="header__link-icon"
+            />
 
-            {{ navigationLinks.scientificBase.name }}
-          </NuxtLink>
-
-          <NuxtLink
-            :to="navigationLinks.products.link"
-            class="header__nav-link tab"
-            active-class="tab_active"
-          >
-            {{ navigationLinks.products.name }}
-          </NuxtLink>
-
-          <NuxtLink
-            :to="navigationLinks.events.link"
-            class="header__nav-link tab"
-            active-class="tab_active"
-          >
-            {{ navigationLinks.events.name }}
+            {{ link.name }}
           </NuxtLink>
         </nav>
 
@@ -57,16 +46,27 @@
   </header>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { computed, ref } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
 
 import SearchInput from '~/components/forms/inputs/SearchInput.vue';
 import TheSidebar from '~/components/TheSidebar.vue';
+import NavLinks from '~/types/NavLinks';
 
 const drawerMenuIsOpen = ref(false);
 
-function toggleDrawerMenuStatus() {
+const navLinks = computed<NavLinks>(() => {
+  const { scientificBase, products, events } = navigationLinks;
+
+  return {
+    scientificBase,
+    products,
+    events
+  };
+});
+
+function toggleDrawerMenuStatus(): void {
   drawerMenuIsOpen.value = !drawerMenuIsOpen.value;
 }
 </script>
@@ -93,8 +93,7 @@ function toggleDrawerMenuStatus() {
     width: 199px;
     height: 44px;
     mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover
-      no-repeat;
+    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
     background-color: #000;
   }
 
@@ -120,8 +119,7 @@ function toggleDrawerMenuStatus() {
     display: flex;
     width: 16px;
     height: 20px;
-    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover
-      no-repeat;
+    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover no-repeat;
     -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center /
       cover no-repeat;
     background-color: var(--text-color-extralight);
