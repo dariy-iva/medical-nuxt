@@ -17,7 +17,7 @@
 
         <a
           href="mailto:dashann@mail.ru?subject=Вопрос&body=Привет!"
-          class="footer__mail blue-button"
+          class="footer__mail button button_color_blue"
         >Написать нам
         </a>
       </div>

@@ -3,7 +3,6 @@
     "name": "index",
     "path": "/",
     "component": "/Users/dariaivanova/Projects/medical-nuxt/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_2924f170"
+    "chunkName": "pages/index"
   }
 ]

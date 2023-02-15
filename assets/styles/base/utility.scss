@@ -1,16 +1,13 @@
 .wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  padding: 0 40px;
+  max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container-shadow {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 1240px) {
-  .wrapper {
-    padding: 0 40px;
-  }
 }
 
 @media (max-width: 767px) {

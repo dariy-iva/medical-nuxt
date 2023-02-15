@@ -12,7 +12,7 @@
       <template #append>
         <button
           type="submit"
-          class="blue-button search-form__submit"
+          class="search-form__submit button button_color_blue"
           aria-label="поиск"
         />
       </template>
