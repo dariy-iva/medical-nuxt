@@ -53,8 +53,8 @@ import { navigationLinks } from '~/utils/constants/navigationLinks';
 import NavLinks from '~/types/NavLinks';
 
 interface Props {
-  isOpen: boolean,
-  onClose: void
+  isOpen: boolean;
+  onClose: void;
 }
 
 const props = defineProps<Props>();
@@ -149,7 +149,8 @@ const navLinks = computed<NavLinks>(() => {
     box-sizing: border-box;
   }
 
-  & ul.el-menu::before, & ul.el-menu::after {
+  & ul.el-menu::before,
+  & ul.el-menu::after {
     display: none;
   }
 

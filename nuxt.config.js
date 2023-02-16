@@ -34,8 +34,18 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@pinia/nuxt'
   ],
+
+  // Pinia module configuration: https://pinia.vuejs.org/ssr/nuxt.html
+  pinia: {
+    autoImports: [
+      // automatically imports `defineStore`
+      'defineStore' // import { defineStore } from 'pinia'
+      // [ 'defineStore', 'definePiniaStore' ] // import { defineStore as definePiniaStore } from 'pinia'
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

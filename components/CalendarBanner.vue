@@ -5,7 +5,8 @@
     </h3>
 
     <p class="calendar-banner__text">
-      Ознакомьтесь с самыми актуальными материалами по сезонным нозологиям от ведущих спикеров дерматологии.
+      Ознакомьтесь с самыми актуальными материалами по сезонным нозологиям от
+      ведущих спикеров дерматологии.
     </p>
 
     <NuxtLink
@@ -17,9 +18,7 @@
   </article>
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .calendar-banner {
@@ -27,9 +26,12 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-image:
-      url("~/assets/images/backgrounds/products_background.webp"),
-      linear-gradient(84.9deg, var(--tertiary-color) 24.65%, var(--general-background-color) 136.83%);
+  background-image: url("~/assets/images/backgrounds/products_background.webp"),
+    linear-gradient(
+      84.9deg,
+      var(--tertiary-color) 24.65%,
+      var(--general-background-color) 136.83%
+    );
   background-repeat: no-repeat;
   background-size: 56.7%, cover;
   background-position: bottom right, center;
@@ -69,7 +71,11 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    background-image: linear-gradient(84.9deg, var(--tertiary-color) 70%, var(--general-background-color) 130%);
+    background-image: linear-gradient(
+      84.9deg,
+      var(--tertiary-color) 70%,
+      var(--general-background-color) 130%
+    );
     background-size: cover;
     background-position: center;
 

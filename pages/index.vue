@@ -1,7 +1,7 @@
 <template>
   <div class="main-page">
     <section class="main-page__section">
-      <CalendarBanner/>
+      <CalendarBanner />
     </section>
   </div>
 </template>

@@ -8,6 +8,8 @@
         />
 
         <SearchInput form-class="header__search" />
+
+        <p>{{ user.shortName }}</p>
       </div>
 
       <div class="header__row">
@@ -47,12 +49,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
+import { useUserStore } from '~/stores/UserStore';
 
 import SearchInput from '~/components/forms/inputs/SearchInput.vue';
 import TheSidebar from '~/components/TheSidebar.vue';
 import NavLinks from '~/types/NavLinks';
+
+const userStore = useUserStore();
+
+const { user } = storeToRefs(userStore);
+const { loadUserShortName, loadUserAvatar } = userStore;
 
 const drawerMenuIsOpen = ref(false);
 
@@ -69,6 +78,11 @@ const navLinks = computed<NavLinks>(() => {
 function toggleDrawerMenuStatus(): void {
   drawerMenuIsOpen.value = !drawerMenuIsOpen.value;
 }
+
+onMounted(() => {
+  loadUserShortName();
+  loadUserAvatar();
+});
 </script>
 
 <style lang="scss">
@@ -93,7 +107,8 @@ function toggleDrawerMenuStatus(): void {
     width: 199px;
     height: 44px;
     mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
+    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover
+      no-repeat;
     background-color: #000;
   }
 
@@ -119,7 +134,8 @@ function toggleDrawerMenuStatus(): void {
     display: flex;
     width: 16px;
     height: 20px;
-    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover no-repeat;
+    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover
+      no-repeat;
     -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center /
       cover no-repeat;
     background-color: var(--text-color-extralight);
