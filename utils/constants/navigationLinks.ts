@@ -70,5 +70,10 @@ export const navigationLinks: NavLinks = {
   calendar: {
     name: 'Научный календарь',
     link: '/calendar'
+  },
+
+  logout: {
+    name: 'Выход',
+    link: '/users/logout'
   }
 };

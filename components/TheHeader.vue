@@ -9,7 +9,42 @@
 
         <SearchInput form-class="header__search" />
 
-        <p>{{ user.shortName }}</p>
+        <div class="header__user-info">
+          <p
+            v-if="user.shortName"
+            class="header__user-name"
+          >
+            {{ user.shortName }}
+          </p>
+
+          <img
+            v-if="user.avatar"
+            :src="user.avatar"
+            alt="аватар пользователя"
+            class="header__user-avatar"
+          >
+
+          <div
+            v-else
+            class="header__user-avatar header__user-avatar_icon"
+          />
+
+          <div class="header__cabinet-popover">
+            <ul class="header__cabinet-links container-shadow">
+              <li
+                v-for="(link, key) in userCabinetLinks"
+                :key="`header-link-${key}`"
+              >
+                <NuxtLink
+                  :to="link.link"
+                  class="header__cabinet-link"
+                >
+                  {{ link.name }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="header__row">
@@ -75,6 +110,15 @@ const navLinks = computed<NavLinks>(() => {
   };
 });
 
+const userCabinetLinks = computed<NavLinks>(() => {
+  const { cabinet, logout } = navigationLinks;
+
+  return {
+    cabinet,
+    logout
+  };
+});
+
 function toggleDrawerMenuStatus(): void {
   drawerMenuIsOpen.value = !drawerMenuIsOpen.value;
 }
@@ -85,7 +129,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   padding: 24px 0;
 
@@ -114,6 +158,74 @@ onMounted(() => {
 
   &__search {
     flex-grow: 1;
+  }
+
+  &__user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  &__user-name {
+    max-width: 210px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 2;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.33;
+    color: var(--text-color);
+  }
+
+  &__user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+
+    &_icon {
+      background: url("@/assets/images/icons/avatar_icon.svg") center / cover
+        no-repeat var(--text-color-inverse);
+    }
+  }
+
+  &__cabinet-popover {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 20;
+    padding-top: 10px;
+    width: 285px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  &__user-info:hover &__cabinet-popover {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__cabinet-links {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--general-background-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  &__cabinet-link {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #353535;
   }
 
   &__nav {
@@ -169,6 +281,26 @@ onMounted(() => {
   }
 }
 
+@media (max-width: 1023px) {
+  .header {
+    &__logo {
+      display: none;
+    }
+
+    &__user-info {
+      order: -1;
+    }
+
+    &__user-name {
+      display: none;
+    }
+
+    &__cabinet-popover {
+      left: 0;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .header {
     padding: 8px 0;
@@ -183,10 +315,7 @@ onMounted(() => {
       flex-grow: 1;
     }
 
-    &__logo {
-      display: none;
-    }
-
+    &__user-info,
     &__nav {
       display: none;
     }
