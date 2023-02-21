@@ -71,9 +71,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
-import NavLinks from '~/types/NavLinks';
+import INavLinks from '~/types/NavLinks';
 
-const navLinks = computed<NavLinks>(() => {
+const navLinks = computed<INavLinks>(() => {
   const { scientificBase, products, events, cabinet } = navigationLinks;
 
   return {

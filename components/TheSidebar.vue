@@ -50,7 +50,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
-import NavLinks from '~/types/NavLinks';
+import INavLinks from '~/types/NavLinks';
 
 interface Props {
   isOpen: boolean;
@@ -66,7 +66,7 @@ const drawerModel = computed({
   set: () => props.onClose()
 });
 
-const navLinks = computed<NavLinks>(() => {
+const navLinks = computed<INavLinks>(() => {
   const {
     cabinet,
     clinicalCases,

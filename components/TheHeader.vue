@@ -91,7 +91,7 @@ import { useUserStore } from '~/stores/UserStore';
 
 import SearchInput from '~/components/forms/inputs/SearchInput.vue';
 import TheSidebar from '~/components/TheSidebar.vue';
-import NavLinks from '~/types/NavLinks';
+import INavLinks from '~/types/NavLinks';
 
 const userStore = useUserStore();
 
@@ -100,7 +100,7 @@ const { loadUserShortName, loadUserAvatar } = userStore;
 
 const drawerMenuIsOpen = ref(false);
 
-const navLinks = computed<NavLinks>(() => {
+const navLinks = computed<INavLinks>(() => {
   const { scientificBase, products, events } = navigationLinks;
 
   return {
@@ -110,7 +110,7 @@ const navLinks = computed<NavLinks>(() => {
   };
 });
 
-const userCabinetLinks = computed<NavLinks>(() => {
+const userCabinetLinks = computed<INavLinks>(() => {
   const { cabinet, logout } = navigationLinks;
 
   return {

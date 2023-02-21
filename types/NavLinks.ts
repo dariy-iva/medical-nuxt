@@ -1,9 +1,9 @@
-interface NavLinks {
+interface INavLinks {
   readonly [index: string]: {
     readonly name: string;
     readonly link: string;
-    readonly children?: NavLinks;
+    readonly children?: INavLinks;
   };
 }
 
-export default NavLinks;
+export default INavLinks;

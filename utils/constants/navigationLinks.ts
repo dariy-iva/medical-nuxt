@@ -1,6 +1,6 @@
-import NavLinks from '~/types/NavLinks';
+import INavLinks from '~/types/NavLinks';
 
-export const navigationLinks: NavLinks = {
+export const navigationLinks: INavLinks = {
   scientificBase: {
     name: 'Научная база',
     link: '/scientific-base'
