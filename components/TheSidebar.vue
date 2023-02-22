@@ -213,7 +213,7 @@ const navLinks = computed<INavLinks>(() => {
       display: inline-block;
       width: 21px;
       height: 10px;
-      background: url("~/assets/images/icons/arrow_icon.svg") center / cover
+      background: url("@/assets/images/icons/arrow_icon.svg") center / cover
         no-repeat;
       rotate: 180deg;
       transition: rotate 0.4s;

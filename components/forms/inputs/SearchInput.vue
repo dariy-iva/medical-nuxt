@@ -41,7 +41,7 @@ const search = ref('');
     min-height: 44px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background-image: url("~/assets/images/icons/search_icon.svg");
+    background-image: url("@/assets/images/icons/search_icon.svg");
     background-size: 20px 20px;
     background-position: center;
     background-repeat: no-repeat;

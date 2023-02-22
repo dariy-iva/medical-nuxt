@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background-image: url("~/assets/images/backgrounds/products_background.webp"),
+  background-image: url("@/assets/images/backgrounds/products_background.webp"),
     linear-gradient(
       84.9deg,
       var(--tertiary-color) 24.65%,

@@ -150,8 +150,8 @@ onMounted(() => {
     display: flex;
     width: 199px;
     height: 44px;
-    mask: url("~/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
-    -webkit-mask: url("~/assets/images/logo/loreal_logo.svg") center / cover
+    mask: url("@/assets/images/logo/loreal_logo.svg") center / cover no-repeat;
+    -webkit-mask: url("@/assets/images/logo/loreal_logo.svg") center / cover
       no-repeat;
     background-color: #000;
   }
@@ -250,9 +250,9 @@ onMounted(() => {
     display: flex;
     width: 16px;
     height: 20px;
-    mask: url("~/assets/images/icons/scientific_base_icon.svg") center / cover
+    mask: url("@/assets/images/icons/scientific_base_icon.svg") center / cover
       no-repeat;
-    -webkit-mask: url("~/assets/images/icons/scientific_base_icon.svg") center /
+    -webkit-mask: url("@/assets/images/icons/scientific_base_icon.svg") center /
       cover no-repeat;
     background-color: var(--text-color-extralight);
     transition: background-color 0.3s;

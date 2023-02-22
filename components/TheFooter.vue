@@ -225,36 +225,36 @@ const navLinks = computed<INavLinks>(() => {
       &_content_home {
         width: 23px;
         height: 19px;
-        mask: url("~/assets/images/icons/home_icon.svg");
-        -webkit-mask-image: url("~/assets/images/icons/home_icon.svg");
+        mask: url("@/assets/images/icons/home_icon.svg");
+        -webkit-mask-image: url("@/assets/images/icons/home_icon.svg");
       }
 
       &_content_scientificBase {
         width: 16px;
         height: 20px;
-        mask: url("~/assets/images/icons/scientific_base_icon.svg");
-        -webkit-mask-image: url("~/assets/images/icons/scientific_base_icon.svg");
+        mask: url("@/assets/images/icons/scientific_base_icon.svg");
+        -webkit-mask-image: url("@/assets/images/icons/scientific_base_icon.svg");
       }
 
       &_content_products {
         width: 15px;
         height: 20px;
-        mask: url("~/assets/images/icons/product_icon.svg");
-        -webkit-mask-image: url("~/assets/images/icons/product_icon.svg");
+        mask: url("@/assets/images/icons/product_icon.svg");
+        -webkit-mask-image: url("@/assets/images/icons/product_icon.svg");
       }
 
       &_content_events {
         width: 19px;
         height: 20px;
-        mask: url("~/assets/images/icons/calendar_icon.svg");
-        -webkit-mask-image: url("~/assets/images/icons/calendar_icon.svg");
+        mask: url("@/assets/images/icons/calendar_icon.svg");
+        -webkit-mask-image: url("@/assets/images/icons/calendar_icon.svg");
       }
 
       &_content_account {
         width: 21px;
         height: 21px;
-        mask: url("~/assets/images/icons/account_icon.svg");
-        -webkit-mask-image: url("~/assets/images/icons/account_icon.svg");
+        mask: url("@/assets/images/icons/account_icon.svg");
+        -webkit-mask-image: url("@/assets/images/icons/account_icon.svg");
       }
     }
 
