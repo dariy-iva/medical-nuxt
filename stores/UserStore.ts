@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import IUser from '~/types/User';
 
 export const useUserStore = defineStore('user', () => {

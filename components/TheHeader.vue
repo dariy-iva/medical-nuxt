@@ -225,7 +225,11 @@ onMounted(() => {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
-    color: #353535;
+    color: var(--text-color);
+
+    &:hover {
+      color: var(--primary-color)
+    }
   }
 
   &__nav {
@@ -304,7 +308,6 @@ onMounted(() => {
 @media (max-width: 767px) {
   .header {
     padding: 8px 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 
     &__wrapper {
       flex-direction: row;

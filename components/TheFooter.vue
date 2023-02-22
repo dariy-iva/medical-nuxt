@@ -74,13 +74,10 @@ import { navigationLinks } from '~/utils/constants/navigationLinks';
 import INavLinks from '~/types/NavLinks';
 
 const navLinks = computed<INavLinks>(() => {
-  const { scientificBase, products, events, cabinet } = navigationLinks;
+  const { home, scientificBase, products, events, cabinet } = navigationLinks;
 
   return {
-    home: {
-      name: 'Главная',
-      link: '/'
-    },
+    home,
     scientificBase,
     products,
     events,

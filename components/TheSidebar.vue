@@ -69,45 +69,52 @@ const drawerModel = computed({
 const navLinks = computed<INavLinks>(() => {
   const {
     cabinet,
+    observations,
+    forPatients,
+    practitionerSkills,
     clinicalCases,
     products,
-    giftsPro,
+    reviews,
+    quiz,
     scientificBase,
     telemedicine,
     events,
+    eventsArchive,
+    webinar,
+    onlineCongress,
+    allergy,
+    vichy,
     feedback,
-    calendar
+    lrp
   } = navigationLinks;
 
   return {
     cabinet: {
       name: cabinet.name,
-      link: cabinet.link,
       children: {
-        observation: cabinet.children?.observation,
-        patients: cabinet.children?.patients,
-        practitionerSkills: cabinet.children?.practitionerSkills
+        observations,
+        forPatients,
+        practitionerSkills
       }
     },
     clinicalCases,
     products: {
       name: products.name,
-      link: products.link,
       children: {
-        products: {
-          name: products.name,
-          link: products.link
+        products,
+        reviews: {
+          name: 'Отзывы о продуктах',
+          link: reviews.link
         },
-        reviews: products.children?.reviews,
-        quiz: products.children?.quiz
+        clinicalCases,
+        quiz
       }
     },
-    giftsPro,
+    gifts: cabinet.children?.gifts,
     scientificBase,
     telemedicine,
     events: {
       name: events.name,
-      link: events.link,
       children: {
         events: {
           name: 'Ближайшие',
@@ -115,13 +122,22 @@ const navLinks = computed<INavLinks>(() => {
         },
         eventsArchive: {
           name: 'Прошедшие',
-          link: events.children?.eventsArchive.link
+          link: eventsArchive.link
         },
-        webinars: events.children?.webinars
+        webinar
+      }
+    },
+    onlineCongress,
+    learning: {
+      name: 'Обучающие проекты',
+      children: {
+        allergy,
+        trichology: vichy.children?.trichology,
+        trichoscopy: vichy.children?.trichoscopy
       }
     },
     feedback,
-    calendar
+    calendar: lrp.children?.calendar
   };
 });
 </script>
@@ -129,6 +145,7 @@ const navLinks = computed<INavLinks>(() => {
 <style lang="scss">
 .drawer-menu {
   & .el-drawer__header {
+    z-index: 1;
     margin: 0;
     padding: 20px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
