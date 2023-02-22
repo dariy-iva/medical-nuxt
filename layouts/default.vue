@@ -4,6 +4,8 @@
 
     <main class="content wrapper">
       <Nuxt />
+
+      <TheBackTop/>
     </main>
 
     <TheFooter />
@@ -13,6 +15,7 @@
 <script setup>
 import TheHeader from '~/components/TheHeader.vue';
 import TheFooter from '~/components/TheFooter.vue';
+import TheBackTop from '~/components/TheBackTop.vue';
 </script>
 
 <style lang="scss">

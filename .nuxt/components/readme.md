@@ -7,6 +7,7 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<CalendarBanner>` | `<calendar-banner>` (components/CalendarBanner.vue)
+- `<TheBackTop>` | `<the-back-top>` (components/TheBackTop.vue)
 - `<TheFooter>` | `<the-footer>` (components/TheFooter.vue)
 - `<TheHeader>` | `<the-header>` (components/TheHeader.vue)
 - `<TheSidebar>` | `<the-sidebar>` (components/TheSidebar.vue)

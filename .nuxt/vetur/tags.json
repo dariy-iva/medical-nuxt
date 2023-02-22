@@ -2,6 +2,9 @@
   "CalendarBanner": {
     "description": "Auto imported from components/CalendarBanner.vue"
   },
+  "TheBackTop": {
+    "description": "Auto imported from components/TheBackTop.vue"
+  },
   "TheFooter": {
     "description": "Auto imported from components/TheFooter.vue"
   },
