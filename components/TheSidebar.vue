@@ -26,7 +26,10 @@
             :index="key"
             class="drawer-menu__second-level-link"
           >
-            <NuxtLink :to="subLink.link">
+            <NuxtLink
+              :to="subLink.link"
+              no-prefetch
+            >
               {{ subLink.name }}
             </NuxtLink>
           </ElMenuItem>
@@ -38,7 +41,10 @@
           :index="key"
           class="drawer-menu__first-level-link"
         >
-          <NuxtLink :to="link.link">
+          <NuxtLink
+            :to="link.link"
+            no-prefetch
+          >
             {{ link.name }}
           </NuxtLink>
         </ElMenuItem>
