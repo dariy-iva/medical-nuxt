@@ -3,7 +3,7 @@
     <UserAvatar class-name="user-photo__radius" />
 
     <ElUpload
-      :class="` `"
+      class="user-photo__input"
       action=""
       accept="image/x-png,image/gif,image/jpeg"
       :limit="1"
@@ -126,6 +126,13 @@ function uploadAvatar(imageData: string | ArrayBuffer): void {
       height: 21px;
       border-left: 4px solid #fff;
     }
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
   }
 }
 
