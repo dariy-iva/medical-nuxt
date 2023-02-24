@@ -62,6 +62,7 @@ module.exports = {
     ],
     'max-params': [ 'error', PARAMS_NUMBER ],
     'new-cap': [ 'error', { newIsCap: true } ],
+    'no-console': 'off',
     'no-duplicate-imports': 'error',
     'no-magic-numbers': [ 'warn', { ignore: MAGIC_NUMBERS_IGNORE } ],
     'no-multi-spaces': 'error',

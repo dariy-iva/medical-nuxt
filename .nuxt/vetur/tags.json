@@ -14,6 +14,15 @@
   "TheSidebar": {
     "description": "Auto imported from components/TheSidebar.vue"
   },
+  "UserAvatar": {
+    "description": "Auto imported from components/UserAvatar.vue"
+  },
+  "UserAvatarWithEdit": {
+    "description": "Auto imported from components/UserAvatarWithEdit.vue"
+  },
+  "UserInfoSection": {
+    "description": "Auto imported from components/UserInfoSection.vue"
+  },
   "FormsInputsSearchInput": {
     "description": "Auto imported from components/forms/inputs/SearchInput.vue"
   }

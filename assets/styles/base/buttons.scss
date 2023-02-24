@@ -17,3 +17,22 @@
     background-color: var(--primary-light-color);
   }
 }
+
+.round-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--tertiary-color);
+  background-image: linear-gradient(
+    93.39deg,
+    var(--primary-color) 0.51%,
+    transparent 101.37%
+  );
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--primary-light-color);
+  }
+}

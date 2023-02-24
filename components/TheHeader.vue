@@ -17,17 +17,7 @@
             {{ user.shortName }}
           </p>
 
-          <img
-            v-if="user.avatar"
-            :src="user.avatar"
-            alt="аватар пользователя"
-            class="header__user-avatar"
-          >
-
-          <div
-            v-else
-            class="header__user-avatar header__user-avatar_icon"
-          />
+          <UserAvatar class-name="header__user-avatar" />
 
           <div class="header__cabinet-popover">
             <ul class="header__cabinet-links container-shadow">
@@ -91,6 +81,7 @@ import { useUserStore } from '~/stores/UserStore';
 
 import SearchInput from '~/components/forms/inputs/SearchInput.vue';
 import TheSidebar from '~/components/TheSidebar.vue';
+import UserAvatar from '~/components/UserAvatar.vue';
 import INavLinks from '~/types/NavLinks';
 
 const userStore = useUserStore();
@@ -184,14 +175,6 @@ onMounted(() => {
   &__user-avatar {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-
-    &_icon {
-      background: url("@/assets/images/icons/avatar_icon.svg") center / cover
-        no-repeat var(--text-color-inverse);
-    }
   }
 
   &__cabinet-popover {
@@ -228,7 +211,7 @@ onMounted(() => {
     color: var(--text-color);
 
     &:hover {
-      color: var(--primary-color)
+      color: var(--primary-color);
     }
   }
 

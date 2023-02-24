@@ -3,6 +3,9 @@ export { default as TheBackTop } from '../../components/TheBackTop.vue'
 export { default as TheFooter } from '../../components/TheFooter.vue'
 export { default as TheHeader } from '../../components/TheHeader.vue'
 export { default as TheSidebar } from '../../components/TheSidebar.vue'
+export { default as UserAvatar } from '../../components/UserAvatar.vue'
+export { default as UserAvatarWithEdit } from '../../components/UserAvatarWithEdit.vue'
+export { default as UserInfoSection } from '../../components/UserInfoSection.vue'
 export { default as FormsInputsSearchInput } from '../../components/forms/inputs/SearchInput.vue'
 
 // nuxt/nuxt.js#8607

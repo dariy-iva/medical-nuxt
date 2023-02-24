@@ -11,4 +11,7 @@ You can directly use them in pages and other components without the need to impo
 - `<TheFooter>` | `<the-footer>` (components/TheFooter.vue)
 - `<TheHeader>` | `<the-header>` (components/TheHeader.vue)
 - `<TheSidebar>` | `<the-sidebar>` (components/TheSidebar.vue)
+- `<UserAvatar>` | `<user-avatar>` (components/UserAvatar.vue)
+- `<UserAvatarWithEdit>` | `<user-avatar-with-edit>` (components/UserAvatarWithEdit.vue)
+- `<UserInfoSection>` | `<user-info-section>` (components/UserInfoSection.vue)
 - `<FormsInputsSearchInput>` | `<forms-inputs-search-input>` (components/forms/inputs/SearchInput.vue)
