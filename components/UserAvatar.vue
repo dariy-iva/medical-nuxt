@@ -15,11 +15,12 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
 import { useUserStore } from '~/stores/UserStore';
 
 const userStore = useUserStore();
-
 const { user } = storeToRefs(userStore);
+const { loadUserAvatar } = userStore;
 
 interface Props {
   className: string;
@@ -27,6 +28,10 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   className: ''
+});
+
+onMounted(() => {
+  !user.value.avatar && loadUserAvatar();
 });
 </script>
 

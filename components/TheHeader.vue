@@ -87,7 +87,7 @@ import INavLinks from '~/types/NavLinks';
 const userStore = useUserStore();
 
 const { user } = storeToRefs(userStore);
-const { loadUserShortName, loadUserAvatar } = userStore;
+const { loadUserShortName } = userStore;
 
 const drawerMenuIsOpen = ref(false);
 
@@ -116,7 +116,6 @@ function toggleDrawerMenuStatus(): void {
 
 onMounted(() => {
   loadUserShortName();
-  loadUserAvatar();
 });
 </script>
 
