@@ -11,15 +11,14 @@
 
 <style scoped lang="scss">
 .back-top {
-
   &.el-backtop {
     bottom: 150px;
     right: 40px;
     width: 48px;
     height: 48px;
     background-color: var(--primary-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-    transition: all .3s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
 
     &:hover {
       background-color: var(--primary-light-color);
@@ -30,7 +29,8 @@
     width: 16px;
     height: 8px;
     mask: url("@/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
-    -webkit-mask: url("@/assets/images/icons/arrow_icon.svg") center / cover no-repeat;
+    -webkit-mask: url("@/assets/images/icons/arrow_icon.svg") center / cover
+      no-repeat;
     background-color: var(--general-background-color);
   }
 }

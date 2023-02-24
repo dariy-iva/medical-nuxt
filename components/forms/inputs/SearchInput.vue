@@ -27,7 +27,7 @@ interface Props {
   formClass?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   formClass: ''
 });
 

@@ -5,7 +5,7 @@
     <main class="content wrapper">
       <Nuxt />
 
-      <TheBackTop/>
+      <TheBackTop />
     </main>
 
     <TheFooter />
