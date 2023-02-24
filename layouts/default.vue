@@ -34,7 +34,7 @@ import TheBackTop from '~/components/TheBackTop.vue';
 @media (max-width: 767px) {
   .content {
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: calc(24px + 64px);
   }
 }
 </style>

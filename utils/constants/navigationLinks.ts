@@ -33,6 +33,11 @@ export const navigationLinks: INavLinks = {
       points: {
         name: 'Баллы',
         link: '/cabinet/points'
+      },
+
+      profile: {
+        name: 'Профиль',
+        link: '/cabinet/profile'
       }
     }
   },
