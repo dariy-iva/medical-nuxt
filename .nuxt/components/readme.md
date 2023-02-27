@@ -13,5 +13,7 @@ You can directly use them in pages and other components without the need to impo
 - `<TheSidebar>` | `<the-sidebar>` (components/TheSidebar.vue)
 - `<UserAvatar>` | `<user-avatar>` (components/UserAvatar.vue)
 - `<UserAvatarWithEdit>` | `<user-avatar-with-edit>` (components/UserAvatarWithEdit.vue)
+- `<UserCardCertificate>` | `<user-card-certificate>` (components/UserCardCertificate.vue)
+- `<UserCardService>` | `<user-card-service>` (components/UserCardService.vue)
 - `<UserInfoSection>` | `<user-info-section>` (components/UserInfoSection.vue)
 - `<FormsInputsSearchInput>` | `<forms-inputs-search-input>` (components/forms/inputs/SearchInput.vue)
