@@ -10,6 +10,10 @@
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
+.container-shadow-light {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 767px) {
   .wrapper {
     padding: 0 24px;

@@ -7,6 +7,12 @@
   text-align: center;
   transition: all 0.3s;
   box-sizing: border-box;
+
+  &:disabled {
+    background-color: var(--text-color-inverse);
+    pointer-events: none;
+    color: var(--text-color-light);
+  }
 }
 
 .button_color_blue {
@@ -15,6 +21,16 @@
 
   &:hover {
     background-color: var(--primary-light-color);
+  }
+}
+
+.button_color_blue-light {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-light-color);
+    color: var(--general-background-color);
   }
 }
 

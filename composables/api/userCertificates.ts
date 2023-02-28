@@ -1,17 +1,22 @@
-import { ref, Ref } from 'vue';
-// import axios from 'axios';
+import { ref } from 'vue';
+import axios from 'axios';
+import ICertificate from '~/types/Certificate';
 
-export function useUserCertificates(): { certificates: Ref<any[]> } {
-  const certificates = ref<any[]>([]);
+export function useUserCertificates() {
+  const certificates = ref<ICertificate[]>([]);
 
-  // axios
-  //   .get('/udata//data/getUserCertificates.json')
-  //   .then(res => {
-  //     if (res.data.items) {
-  //       certificates.value = Object.values(res.data.items);
-  //     }
-  //   })
-  //   .catch(err => console.log('Ошибка загрузки сертификатов пользователя: ', err));
+  function loadUserCertificates() {
+    axios
+      .get('/udata//data/getUserCertificates.json')
+      .then(res => {
+        if (res.data.items) {
+          certificates.value = Object.values(res.data.items);
+        }
+      })
+      .catch(err => console.log('Ошибка загрузки сертификатов пользователя: ', err));
+  }
+
+  loadUserCertificates();
 
   certificates.value = [
     {
@@ -71,5 +76,5 @@ export function useUserCertificates(): { certificates: Ref<any[]> } {
     }
   ];
 
-  return { certificates };
+  return { certificates, loadUserCertificates };
 }

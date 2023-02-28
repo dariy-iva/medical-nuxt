@@ -2,6 +2,12 @@
   "CalendarBanner": {
     "description": "Auto imported from components/CalendarBanner.vue"
   },
+  "EventsList": {
+    "description": "Auto imported from components/EventsList.vue"
+  },
+  "EventsListItem": {
+    "description": "Auto imported from components/EventsListItem.vue"
+  },
   "TheBackTop": {
     "description": "Auto imported from components/TheBackTop.vue"
   },
@@ -28,6 +34,12 @@
   },
   "UserInfoSection": {
     "description": "Auto imported from components/UserInfoSection.vue"
+  },
+  "UiButtonLoadMore": {
+    "description": "Auto imported from components/ui/ButtonLoadMore.vue"
+  },
+  "UiPreLoader": {
+    "description": "Auto imported from components/ui/PreLoader.vue"
   },
   "FormsInputsSearchInput": {
     "description": "Auto imported from components/forms/inputs/SearchInput.vue"

@@ -1,11 +1,11 @@
 import { ref, Ref } from 'vue';
 // import axios from 'axios';
-import { storeToRefs } from 'pinia';
-import { useUserStore } from '~/stores/UserStore';
+// import { storeToRefs } from 'pinia';
+// import { useUserStore } from '~/stores/UserStore';
 
 export function useUserNumberPoints(): { numberPoints: Ref<number> } {
-  const userStore = useUserStore();
-  const { user } = storeToRefs(userStore);
+  // const userStore = useUserStore();
+  // const { user } = storeToRefs(userStore);
 
   const numberPoints = ref(0);
 
