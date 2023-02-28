@@ -77,6 +77,8 @@
       <h2 class="user-index-page__title">
         Мои мероприятия
       </h2>
+
+      <EventsList />
     </section>
   </div>
 </template>
@@ -86,6 +88,7 @@ import { computed } from 'vue';
 import UserInfoSection from '~/components/UserInfoSection.vue';
 import UserCardService from '~/components/UserCardService.vue';
 import UserCardCertificate from '~/components/UserCardCertificate.vue';
+import EventsList from '~/components/EventsList.vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
 import { useUserCertificates } from '~/composables/api/userCertificates';
 import { useUserNumberPoints } from '~/composables/api/userNumberPoints';
@@ -95,11 +98,12 @@ const { numberPoints } = useUserNumberPoints();
 
 const pointsCardsData = computed(() => {
   const { cabinet } = navigationLinks;
+  const maxNumber = 9999;
 
   return {
     history: {
       link: cabinet?.children?.points.link ?? '',
-      name: `${numberPoints.value > 9999 ? '9999+' : numberPoints.value}`,
+      name: `${numberPoints.value > maxNumber ? '9999+' : numberPoints.value}`,
       text: 'История начислений'
     },
     gifts: {
