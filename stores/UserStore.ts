@@ -6,6 +6,7 @@ import IUser from '~/types/User';
 export const useUserStore = defineStore('user', () => {
   const user = ref<IUser>({
     id: 0,
+    type: '',
     shortName: '',
     fullName: '',
     avatar: '',
@@ -21,6 +22,10 @@ export const useUserStore = defineStore('user', () => {
     livingBuilding: '',
     livingFlat: ''
   });
+
+  function _setUserType(type: string): void {
+    user.value.type = type;
+  }
 
   function _setUserShortName(name: string): void {
     user.value.shortName = name;
@@ -60,6 +65,21 @@ export const useUserStore = defineStore('user', () => {
     user.value.livingHouse = livingHouse;
     user.value.livingBuilding = livingBuilding;
     user.value.livingFlat = livingFlat;
+  }
+
+  function loadUserWelcome(): void {
+    // axios
+    //   .get('/users/welcome.json')
+    //   .then(res => {
+    //     if (res.data?.user?.type) {
+    //       _setUserType(res.data.user.type);
+    //     }
+    //   })
+    //   .catch(err => console.log('Ошибка загрузки приветственных данных пользователя: ', err));
+
+    const type = 'sv';
+
+    _setUserType(type);
   }
 
   function loadUserShortName(): void {
@@ -158,6 +178,7 @@ export const useUserStore = defineStore('user', () => {
     loadUserShortName,
     loadUserFullName,
     loadUserAvatar,
-    loadUserSecondaryInfo
+    loadUserSecondaryInfo,
+    loadUserWelcome
   };
 });

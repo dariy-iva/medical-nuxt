@@ -1,5 +1,6 @@
 interface IUser {
   id?: number;
+  type?: string;
   shortName?: string;
   fullName?: string;
   avatar?: string;
