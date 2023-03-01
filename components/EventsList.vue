@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="eventsForRender.length"
+    v-if="!eventsAllIsLoading & !userEventsIdIsLoading"
     class="events"
   >
     <ul class="events__list">
@@ -36,8 +36,15 @@ const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 const { loadUserWelcome } = userStore;
 
-const { userEventsId, loadUserEventsId } = useUserEventsId();
-const { eventsAll, isMaxContent, loadEventsAll, loadMoreEventsAll } = useEventsAll(0);
+const { userEventsId, userEventsIdIsLoading, loadUserEventsId } =
+  useUserEventsId();
+const {
+  eventsAll,
+  isMaxContent,
+  eventsAllIsLoading,
+  loadEventsAll,
+  loadMoreEventsAll
+} = useEventsAll(0);
 
 const route = useRoute();
 

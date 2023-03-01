@@ -19,19 +19,10 @@
         </ElTooltip>
       </h2>
 
-      <ul class="user-index-page__services-list">
-        <li
-          v-for="(card, key) in pointsCardsData"
-          :key="`service-${key}`"
-          class="user-index-page__services-item"
-        >
-          <UserCardService
-            :card-data="card"
-            :key-link="key"
-            :is-points="true"
-          />
-        </li>
-      </ul>
+      <UserServicesList
+        :services-data="pointsCardsData"
+        :is-points="true"
+      />
     </section>
 
     <section class="user-index-page__section">
@@ -39,38 +30,18 @@
         Мои инструменты
       </h2>
 
-      <ul class="user-index-page__services-list">
-        <li
-          v-for="(card, key) in servicesCardsData"
-          :key="`service-${key}`"
-          class="user-index-page__services-item"
-        >
-          <UserCardService
-            :card-data="card"
-            :key-link="key"
-            :is-points="false"
-          />
-        </li>
-      </ul>
+      <UserServicesList
+        :services-data="servicesCardsData"
+        :is-points="false"
+      />
     </section>
 
-    <section
-      v-if="certificates.length"
-      class="user-index-page__section"
-    >
+    <section class="user-index-page__section">
       <h2 class="user-index-page__title">
         Мои сертификаты
       </h2>
 
-      <ul class="user-index-page__services-list">
-        <li
-          v-for="certificate in certificates"
-          :key="`certificate-${certificate.link_to_download_pdf}`"
-          class="user-index-page__certificate-item"
-        >
-          <UserCardCertificate :certificate="certificate" />
-        </li>
-      </ul>
+      <CertificatesList />
     </section>
 
     <section class="user-index-page__section">
@@ -86,14 +57,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import UserInfoSection from '~/components/UserInfoSection.vue';
-import UserCardService from '~/components/UserCardService.vue';
-import UserCardCertificate from '~/components/UserCardCertificate.vue';
+import UserServicesList from '~/components/UserServicesList.vue';
+import CertificatesList from '~/components/CertificatesList.vue';
 import EventsList from '~/components/EventsList.vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
-import { useUserCertificates } from '~/composables/api/userCertificates';
 import { useUserNumberPoints } from '~/composables/api/userNumberPoints';
 
-const { certificates } = useUserCertificates();
 const { numberPoints } = useUserNumberPoints();
 
 const pointsCardsData = computed(() => {
@@ -184,12 +153,6 @@ const servicesCardsData = computed(() => {
     line-height: 1;
     color: #fff;
   }
-
-  &__services-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -203,22 +166,6 @@ const servicesCardsData = computed(() => {
     &__question {
       margin-left: auto;
     }
-
-    &__services-list {
-      row-gap: 16px;
-      column-gap: 8px;
-    }
-
-    &__certificate-item {
-      max-width: 327px;
-      width: 100%;
-    }
-  }
-}
-
-@media (max-width: 375px) {
-  .user-index-page__services-item {
-    width: calc(50% - 4px);
   }
 }
 </style>

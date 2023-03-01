@@ -7,6 +7,8 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<CalendarBanner>` | `<calendar-banner>` (components/CalendarBanner.vue)
+- `<CertificatesList>` | `<certificates-list>` (components/CertificatesList.vue)
+- `<CertificatesListItem>` | `<certificates-list-item>` (components/CertificatesListItem.vue)
 - `<EventsList>` | `<events-list>` (components/EventsList.vue)
 - `<EventsListItem>` | `<events-list-item>` (components/EventsListItem.vue)
 - `<TheBackTop>` | `<the-back-top>` (components/TheBackTop.vue)
@@ -15,9 +17,9 @@ You can directly use them in pages and other components without the need to impo
 - `<TheSidebar>` | `<the-sidebar>` (components/TheSidebar.vue)
 - `<UserAvatar>` | `<user-avatar>` (components/UserAvatar.vue)
 - `<UserAvatarWithEdit>` | `<user-avatar-with-edit>` (components/UserAvatarWithEdit.vue)
-- `<UserCardCertificate>` | `<user-card-certificate>` (components/UserCardCertificate.vue)
-- `<UserCardService>` | `<user-card-service>` (components/UserCardService.vue)
 - `<UserInfoSection>` | `<user-info-section>` (components/UserInfoSection.vue)
+- `<UserServicesList>` | `<user-services-list>` (components/UserServicesList.vue)
+- `<UserServicesListItem>` | `<user-services-list-item>` (components/UserServicesListItem.vue)
 - `<UiButtonLoadMore>` | `<ui-button-load-more>` (components/ui/ButtonLoadMore.vue)
 - `<UiPreLoader>` | `<ui-pre-loader>` (components/ui/PreLoader.vue)
 - `<FormsInputsSearchInput>` | `<forms-inputs-search-input>` (components/forms/inputs/SearchInput.vue)

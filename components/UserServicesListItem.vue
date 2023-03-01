@@ -34,16 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import INavLinks from '~/types/NavLinks';
-interface ICardData {
-  link?: string;
-  name?: string;
-  text?: string;
-  children?: INavLinks;
-}
+import IUserService from '~/types/props/UserService';
 
 defineProps<{
-  cardData: ICardData;
+  cardData: IUserService;
   keyLink: string;
   isPoints: boolean;
 }>();

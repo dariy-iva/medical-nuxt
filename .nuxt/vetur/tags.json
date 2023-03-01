@@ -2,6 +2,12 @@
   "CalendarBanner": {
     "description": "Auto imported from components/CalendarBanner.vue"
   },
+  "CertificatesList": {
+    "description": "Auto imported from components/CertificatesList.vue"
+  },
+  "CertificatesListItem": {
+    "description": "Auto imported from components/CertificatesListItem.vue"
+  },
   "EventsList": {
     "description": "Auto imported from components/EventsList.vue"
   },
@@ -26,14 +32,14 @@
   "UserAvatarWithEdit": {
     "description": "Auto imported from components/UserAvatarWithEdit.vue"
   },
-  "UserCardCertificate": {
-    "description": "Auto imported from components/UserCardCertificate.vue"
-  },
-  "UserCardService": {
-    "description": "Auto imported from components/UserCardService.vue"
-  },
   "UserInfoSection": {
     "description": "Auto imported from components/UserInfoSection.vue"
+  },
+  "UserServicesList": {
+    "description": "Auto imported from components/UserServicesList.vue"
+  },
+  "UserServicesListItem": {
+    "description": "Auto imported from components/UserServicesListItem.vue"
   },
   "UiButtonLoadMore": {
     "description": "Auto imported from components/ui/ButtonLoadMore.vue"

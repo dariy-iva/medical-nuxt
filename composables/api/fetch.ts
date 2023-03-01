@@ -1,13 +1,22 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-export function useFetch(url: string) {
+export function useFetch(url: string, queryString: string = '', options = {}) {
   const data = ref(null);
   const error = ref(null);
+  const isLoading = ref(false);
+  const urlWithQuery = queryString ? url + '?' + queryString : url;
 
-  axios(url)
-    .then(res => (data.value = res.data))
-    .catch(err => (error.value = err));
+  async function doFetch() {
+    isLoading.value = true;
 
-  return { data, error };
+    await axios(urlWithQuery, options)
+      .then(res => (data.value = res.data))
+      .catch(err => (error.value = err))
+      .finally(() => {
+        isLoading.value = false;
+      });
+  }
+
+  return { data, error, doFetch };
 }

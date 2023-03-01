@@ -4,19 +4,23 @@ import ICertificate from '~/types/Certificate';
 
 export function useUserCertificates() {
   const certificates = ref<ICertificate[]>([]);
+  const certificatesIsLoading = ref(false);
 
-  function loadUserCertificates() {
-    axios
+  async function loadUserCertificates() {
+    certificatesIsLoading.value = true;
+
+    await axios
       .get('/udata//data/getUserCertificates.json')
       .then(res => {
         if (res.data.items) {
           certificates.value = Object.values(res.data.items);
         }
       })
-      .catch(err => console.log('Ошибка загрузки сертификатов пользователя: ', err));
+      .catch(err => console.log('Ошибка загрузки сертификатов пользователя: ', err))
+      .finally(() => {
+        certificatesIsLoading.value = false;
+      });
   }
-
-  loadUserCertificates();
 
   certificates.value = [
     {
@@ -76,5 +80,5 @@ export function useUserCertificates() {
     }
   ];
 
-  return { certificates, loadUserCertificates };
+  return { certificates, certificatesIsLoading, loadUserCertificates };
 }

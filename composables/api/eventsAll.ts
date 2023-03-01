@@ -23,6 +23,7 @@ export function useEventsAll(pageId: number) {
   const perPage = ref(0);
   const total = ref(0);
   const currPage = ref(0);
+  const eventsAllIsLoading = ref(false);
 
   const loadedItems = computed((): number => {
     const mathLoaded = (currPage.value + 1) * perPage.value;
@@ -35,6 +36,8 @@ export function useEventsAll(pageId: number) {
   });
 
   async function loadEventsAll(options = {}) {
+    eventsAllIsLoading.value = true;
+
     await axios
       .get(url, options)
       .then((res: { data: IResponseBody }) => {
@@ -42,7 +45,10 @@ export function useEventsAll(pageId: number) {
         perPage.value = res.data.per_page;
         total.value = res.data.total;
       })
-      .catch(err => console.log('Ошибка загрузки ближайших событий: ', err));
+      .catch(err => console.log('Ошибка загрузки ближайших событий: ', err))
+      .finally(() => {
+        eventsAllIsLoading.value = false;
+      });
   }
 
   async function loadMoreEventsAll() {
@@ -418,5 +424,11 @@ export function useEventsAll(pageId: number) {
   perPage.value = 10;
   total.value = 9;
 
-  return { eventsAll, isMaxContent, loadEventsAll, loadMoreEventsAll };
+  return {
+    eventsAll,
+    isMaxContent,
+    eventsAllIsLoading,
+    loadEventsAll,
+    loadMoreEventsAll
+  };
 }
