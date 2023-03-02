@@ -12,7 +12,7 @@ interface IResponseBody {
   };
   points_all: {
     full_name: string;
-    float: number
+    float: number;
   };
   method: 'getUserPoints';
   module: 'users';

@@ -41,6 +41,9 @@
   "UserServicesListItem": {
     "description": "Auto imported from components/UserServicesListItem.vue"
   },
+  "ModalsModalWithoutHeader": {
+    "description": "Auto imported from components/modals/ModalWithoutHeader.vue"
+  },
   "UiButtonLoadMore": {
     "description": "Auto imported from components/ui/ButtonLoadMore.vue"
   },

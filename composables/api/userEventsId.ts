@@ -9,7 +9,7 @@ interface IResponseBody {
 
 export function useUserEventsId() {
   const { data, error, isLoading, doFetch } = useFetch<IResponseBody>('/udata/data/getEventsFromUserCalendar.json');
-  
+
   const userEventsId = ref<number[]>([]);
 
   async function loadUserEventsId() {

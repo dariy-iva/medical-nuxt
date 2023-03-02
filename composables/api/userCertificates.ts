@@ -84,5 +84,9 @@ export function useUserCertificates() {
     }
   ];
 
-  return { certificates, certificatesIsLoading: isLoading, loadUserCertificates };
+  return {
+    certificates,
+    certificatesIsLoading: isLoading,
+    loadUserCertificates
+  };
 }

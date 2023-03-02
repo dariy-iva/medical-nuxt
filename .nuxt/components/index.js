@@ -12,6 +12,7 @@ export { default as UserAvatarWithEdit } from '../../components/UserAvatarWithEd
 export { default as UserInfoSection } from '../../components/UserInfoSection.vue'
 export { default as UserServicesList } from '../../components/UserServicesList.vue'
 export { default as UserServicesListItem } from '../../components/UserServicesListItem.vue'
+export { default as ModalsModalWithoutHeader } from '../../components/modals/ModalWithoutHeader.vue'
 export { default as UiButtonLoadMore } from '../../components/ui/ButtonLoadMore.vue'
 export { default as UiPreLoader } from '../../components/ui/PreLoader.vue'
 export { default as FormsInputsSearchInput } from '../../components/forms/inputs/SearchInput.vue'

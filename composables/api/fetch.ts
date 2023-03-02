@@ -1,13 +1,18 @@
 import { ref, Ref, unref } from 'vue';
 import axios from 'axios';
 
-export function useFetch<T>(url: string | Ref<string>, queryString: string | Ref<string> = '') {
+export function useFetch<T>(
+  url: string | Ref<string>,
+  queryString: string | Ref<string> = ''
+) {
   const data = ref<T | null>(null);
   const error = ref<any>(null);
   const isLoading = ref(false);
   let fetchController: any = null;
 
-  const urlWithQuery = queryString ? unref(url) + '?' + unref(queryString) : unref(url);
+  const urlWithQuery = queryString
+    ? unref(url) + '?' + unref(queryString)
+    : unref(url);
 
   async function doFetch(options: any = {}) {
     isLoading.value = true;

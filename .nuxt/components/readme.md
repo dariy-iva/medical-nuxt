@@ -20,6 +20,7 @@ You can directly use them in pages and other components without the need to impo
 - `<UserInfoSection>` | `<user-info-section>` (components/UserInfoSection.vue)
 - `<UserServicesList>` | `<user-services-list>` (components/UserServicesList.vue)
 - `<UserServicesListItem>` | `<user-services-list-item>` (components/UserServicesListItem.vue)
+- `<ModalsModalWithoutHeader>` | `<modals-modal-without-header>` (components/modals/ModalWithoutHeader.vue)
 - `<UiButtonLoadMore>` | `<ui-button-load-more>` (components/ui/ButtonLoadMore.vue)
 - `<UiPreLoader>` | `<ui-pre-loader>` (components/ui/PreLoader.vue)
 - `<FormsInputsSearchInput>` | `<forms-inputs-search-input>` (components/forms/inputs/SearchInput.vue)
