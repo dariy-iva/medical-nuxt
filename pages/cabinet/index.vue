@@ -51,17 +51,30 @@
 
       <EventsList />
     </section>
+
+    <ModalWithoutHeader
+      :toggle-is-visible="toggleVisibilityPromocodeModal"
+      :is-visible="modals.promocodeModal.isOpen"
+      class-name="user-index-page__modal"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
 import UserInfoSection from '~/components/UserInfoSection.vue';
 import UserServicesList from '~/components/UserServicesList.vue';
 import CertificatesList from '~/components/CertificatesList.vue';
 import EventsList from '~/components/EventsList.vue';
+import ModalWithoutHeader from '~/components/modals/ModalWithoutHeader.vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
+import { useModalsStore } from '~/stores/ModalsStore';
 import { useUserNumberPoints } from '~/composables/api/userNumberPoints';
+
+const modalStore = useModalsStore();
+const { modals } = storeToRefs(modalStore);
+const { toggleVisibilityPromocodeModal } = modalStore;
 
 const { numberPoints, loadNumberPoints } = useUserNumberPoints();
 
@@ -127,7 +140,7 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .user-index-page {
   display: flex;
   flex-direction: column;
@@ -157,6 +170,11 @@ onMounted(async () => {
     line-height: 1;
     color: #fff;
   }
+
+  &__modal {
+    padding: 24px;
+    width: 460px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -169,6 +187,11 @@ onMounted(async () => {
 
     &__question {
       margin-left: auto;
+    }
+
+    &__modal {
+      padding: 16px;
+      width: 72%;
     }
   }
 }

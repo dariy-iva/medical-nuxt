@@ -13,6 +13,7 @@
     <span
       v-else
       class="user-service__link"
+      @click="toggleVisibilityPromocodeModal"
     />
 
     <p
@@ -35,6 +36,10 @@
 
 <script setup lang="ts">
 import IUserService from '~/types/props/UserService';
+import { useModalsStore } from '~/stores/ModalsStore';
+
+const modalStore = useModalsStore();
+const { toggleVisibilityPromocodeModal } = modalStore;
 
 defineProps<{
   cardData: IUserService;
@@ -155,6 +160,7 @@ defineProps<{
     left: 0;
     right: 0;
     bottom: 0;
+    cursor: pointer;
   }
 
   &__name,
