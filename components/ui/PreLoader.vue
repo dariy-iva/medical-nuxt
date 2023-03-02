@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 interface Props {
-  loadingText: string;
+  loadingText?: string;
 }
 
 withDefaults(defineProps<Props>(), {

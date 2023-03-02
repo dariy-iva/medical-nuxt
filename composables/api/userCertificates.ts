@@ -1,27 +1,31 @@
 import { ref } from 'vue';
-import axios from 'axios';
 import ICertificate from '~/types/Certificate';
+import { useFetch } from '~/composables/api/fetch';
+
+interface IResponseBody {
+  items: {
+    [index: number]: ICertificate;
+  };
+  method: 'getUserCertificates';
+  module: 'data';
+}
 
 export function useUserCertificates() {
   const certificates = ref<ICertificate[]>([]);
-  const certificatesIsLoading = ref(false);
+
+  const { data, error, isLoading, doFetch } = useFetch<IResponseBody>('/udata//data/getUserCertificates.json');
 
   async function loadUserCertificates() {
-    certificatesIsLoading.value = true;
+    await doFetch();
 
-    await axios
-      .get('/udata//data/getUserCertificates.json')
-      .then(res => {
-        if (res.data.items) {
-          certificates.value = Object.values(res.data.items);
-        }
-      })
-      .catch(err => console.log('Ошибка загрузки сертификатов пользователя: ', err))
-      .finally(() => {
-        certificatesIsLoading.value = false;
-      });
+    if (data.value) {
+      certificates.value = Object.values(data.value?.items ?? {});
+    } else if (error.value) {
+      console.log('Ошибка загрузки сертификатов пользователя: ', error.value);
+    }
   }
 
+  // тестовые данные
   certificates.value = [
     {
       date: '03.11.2021',
@@ -80,5 +84,5 @@ export function useUserCertificates() {
     }
   ];
 
-  return { certificates, certificatesIsLoading, loadUserCertificates };
+  return { certificates, certificatesIsLoading: isLoading, loadUserCertificates };
 }

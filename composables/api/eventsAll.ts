@@ -1,29 +1,30 @@
-import { computed, ref } from 'vue';
-import axios from 'axios';
+import { computed, ref, Ref, unref } from 'vue';
 import IEvent from '~/types/Event';
+import { useFetch } from '~/composables/api/fetch';
 
 interface IResponseBody {
-  builder: string;
-  curr_page: 0;
   items: {
     [index: number]: IEvent;
   };
-  method: string;
-  module: string;
-  parent_id: number;
+  curr_page: number;
   per_page: number;
   total: number;
-  view: string;
+  parent_id: number;
+  builder: 'EventPageBuilder';
+  view: 'EventsPageView';
+  method: 'getPagesData';
+  module: 'content';
 }
 
-export function useEventsAll(pageId: number) {
-  const url = `/udata//content/getPagesData/${pageId}/EventPageBuilder/EventsPageView/.json`;
+export function useEventsAll(pageId: number | Ref<number>) {
+  const url = `/udata//content/getPagesData/${unref(pageId)}/EventPageBuilder/EventsPageView/.json`;
+
+  const { data, error, isLoading, doFetch } = useFetch<IResponseBody>(url);
 
   const eventsAll = ref<IEvent[]>([]);
   const perPage = ref(0);
   const total = ref(0);
   const currPage = ref(0);
-  const eventsAllIsLoading = ref(false);
 
   const loadedItems = computed((): number => {
     const mathLoaded = (currPage.value + 1) * perPage.value;
@@ -36,19 +37,15 @@ export function useEventsAll(pageId: number) {
   });
 
   async function loadEventsAll(options = {}) {
-    eventsAllIsLoading.value = true;
+    await doFetch(options);
 
-    await axios
-      .get(url, options)
-      .then((res: { data: IResponseBody }) => {
-        eventsAll.value = eventsAll.value.concat(Object.values(res.data.items).reverse());
-        perPage.value = res.data.per_page;
-        total.value = res.data.total;
-      })
-      .catch(err => console.log('Ошибка загрузки ближайших событий: ', err))
-      .finally(() => {
-        eventsAllIsLoading.value = false;
-      });
+    if (data.value) {
+      eventsAll.value = eventsAll.value.concat(Object.values(data.value.items).reverse());
+      perPage.value = data.value.per_page;
+      total.value = data.value.total;
+    } else if (error.value) {
+      console.log('Ошибка загрузки ближайших событий: ', error.value);
+    }
   }
 
   async function loadMoreEventsAll() {
@@ -63,6 +60,7 @@ export function useEventsAll(pageId: number) {
     await loadEventsAll(options);
   }
 
+  // тестовые данные
   eventsAll.value = [
     {
       address:
@@ -427,7 +425,7 @@ export function useEventsAll(pageId: number) {
   return {
     eventsAll,
     isMaxContent,
-    eventsAllIsLoading,
+    eventsAllIsLoading: isLoading,
     loadEventsAll,
     loadMoreEventsAll
   };

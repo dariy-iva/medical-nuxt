@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import UserInfoSection from '~/components/UserInfoSection.vue';
 import UserServicesList from '~/components/UserServicesList.vue';
 import CertificatesList from '~/components/CertificatesList.vue';
@@ -63,7 +63,7 @@ import EventsList from '~/components/EventsList.vue';
 import { navigationLinks } from '~/utils/constants/navigationLinks';
 import { useUserNumberPoints } from '~/composables/api/userNumberPoints';
 
-const { numberPoints } = useUserNumberPoints();
+const { numberPoints, loadNumberPoints } = useUserNumberPoints();
 
 const pointsCardsData = computed(() => {
   const { cabinet } = navigationLinks;
@@ -120,6 +120,10 @@ const servicesCardsData = computed(() => {
       text: 'Рекомендуйте пациентам продукты во время онлайн-консультаций'
     }
   };
+});
+
+onMounted(async () => {
+  await loadNumberPoints();
 });
 </script>
 
